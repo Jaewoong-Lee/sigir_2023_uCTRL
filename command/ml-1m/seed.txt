@@ -1,0 +1,34 @@
+MF_IPS
+python run_hyper_debias.py --model=MF_IPS --dataset=ml-1m --encoder=MF --params_file=seed_hyper/beauty/mf_ips_mf.hyper --eval=unbiased --output_file=output_files/ml-1m/mf_ips_seed --gpu_id=0
+RelMF
+python run_hyper_debias.py --model=REL_MF --dataset=ml-1m --encoder=MF --params_file=seed_hyper/beauty/rel_mf.hyper --eval=unbiased --output_file=output_files/ml-1m/rel_mf_seed --gpu_id=0
+PDA
+python run_hyper_debias.py --model=PDA --dataset=ml-1m --encoder=MF --params_file=seed_hyper/beauty/pda_mf.hyper --eval=unbiased --output_file=output_files/ml-1m/pda_seed --gpu_id=0
+MACR
+python run_hyper_debias.py --model=MACR --dataset=ml-1m --encoder=MF --params_file=seed_hyper/beauty/macr_mf.hyper --eval=unbiased --output_file=output_files/ml-1m/macr_seed --gpu_id=0
+BPR
+python run_hyper.py --model=BPR --dataset=ml-1m --encoder=MF --params_file=seed_hyper/beauty/bpr_mf.hyper --eval=unbiased --output_file=output_files/ml-1m/bpr_seed --gpu_id=1
+SSM
+python run_hyper.py --model=SSM --dataset=ml-1m --encoder=MF --params_file=seed_hyper/beauty/ssm_mf.hyper --eval=unbiased --output_file=output_files/ml-1m/ssm_seed --gpu_id=1
+BCLOSS
+python run_hyper.py --model=BCLOSS --dataset=ml-1m --encoder=MF --params_file=seed_hyper/beauty/bce_mf.hyper --eval=unbiased --output_file=output_files/ml-1m/bce_seed --gpu_id=1
+DirectAU
+python run_hyper.py --model=DirectAU --dataset=ml-1m --encoder=MF --params_file=seed_hyper/beauty/directau_mf.hyper --eval=unbiased --output_file=output_files/ml-1m/directau_seed --gpu_id=1
+
+
+MF_IPS
+python run_hyper_debias.py --model=MF_IPS_GCN --dataset=ml-1m --encoder=LightGCN --n_layers=1 --params_file=seed_hyper/beauty/mf_ips_lightgcn.hyper --output_file=output_files/ml-1m/mf_ips_gcn_seed --gpu_id=0 --eval=unbiased
+RelMF
+python run_hyper_debias.py --model=REL_LightGCN --dataset=ml-1m --encoder=LightGCN --n_layers=1 --params_file=seed_hyper/beauty/rel_lightgcn.hyper --output_file=output_files/ml-1m/rel_mf_gcn_seed --gpu_id=1 --eval=unbiased
+PDA
+python run_hyper_debias.py --model=PDA --dataset=ml-1m --encoder=LightGCN --n_layers=1 --params_file=seed_hyper/beauty/pda_lightgcn.hyper --output_file=output_files/ml-1m/pda_gcn_seed --gpu_id=0 --eval=unbiased
+MACR
+python run_hyper_debias.py --model=MACR --dataset=ml-1m --encoder=LightGCN --n_layers=1 --params_file=seed_hyper/beauty/macr_lightgcn.hyper --output_file=output_files/ml-1m/macr_gcn_seed --gpu_id=1 --eval=unbiased
+BPR
+python run_hyper.py --model=BPR_GCN --dataset=ml-1m --encoder=LightGCN --n_layers=1 --params_file=seed_hyper/beauty/bpr_lightgcn.hyper --output_file=output_files/ml-1m/bpr_gcn_seed --gpu_id=0 --eval=unbiased
+SSM
+python run_hyper.py --model=SSM --dataset=ml-1m --encoder=LightGCN --n_layers=1 --params_file=seed_hyper/beauty/ssm_lightgcn.hyper --output_file=output_files/ml-1m/ssm_gcn_seed --gpu_id=1 --eval=unbiased
+BCLOSS
+python run_hyper.py --model=BCLOSS_GCN --dataset=ml-1m --encoder=LightGCN --n_layers=1 --params_file=seed_hyper/beauty/bce_lightgcn.hyper --output_file=output_files/ml-1m/bce_gcn_seed --gpu_id=0 --eval=unbiased
+DirectAU
+python run_hyper.py --model=DirectAU --dataset=ml-1m --encoder=LightGCN --n_layers=1 --params_file=seed_hyper/beauty/directau_lightgcn.hyper --output_file=output_files/ml-1m/directau_gcn_seed --gpu_id=1 --eval=unbiased

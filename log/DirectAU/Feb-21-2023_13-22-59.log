@@ -1,0 +1,156 @@
+Tue 21 Feb 2023 13:22:59 INFO  
+General Hyper Parameters:
+gpu_id = 0
+use_gpu = True
+seed = 0
+state = INFO
+reproducibility = True
+data_path = dataset/ml-1m
+checkpoint_dir = saved
+show_progress = False
+save_dataset = False
+dataset_save_path = None
+save_dataloaders = True
+dataloaders_save_path = None
+log_wandb = False
+
+Training Hyper Parameters:
+epochs = 10
+train_batch_size = 1024
+learner = adam
+learning_rate = 0.5
+neg_sampling = None
+eval_step = 1
+stopping_step = 10
+clip_grad_norm = None
+weight_decay = 0
+loss_decimal_place = 4
+
+Evaluation Hyper Parameters:
+eval_args = {'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}
+repeatable = False
+metrics = ['Recall', 'NDCG']
+topk = [10, 20, 50]
+valid_metric = NDCG@20
+valid_metric_bigger = True
+eval_batch_size = 1048576
+metric_decimal_place = 15
+
+Dataset Hyper Parameters:
+field_separator = 	
+seq_separator =  
+USER_ID_FIELD = user_id
+ITEM_ID_FIELD = item_id
+RATING_FIELD = rating
+TIME_FIELD = timestamp
+seq_len = None
+LABEL_FIELD = label
+threshold = None
+NEG_PREFIX = neg_
+load_col = {'inter': ['user_id', 'item_id', 'timestamp']}
+unload_col = None
+unused_col = None
+additional_feat_suffix = None
+rm_dup_inter = last
+val_interval = None
+filter_inter_by_user_or_item = True
+user_inter_num_interval = [5,inf)
+item_inter_num_interval = [5,inf)
+alias_of_user_id = None
+alias_of_item_id = None
+alias_of_entity_id = None
+alias_of_relation_id = None
+preload_weight = None
+normalize_field = None
+normalize_all = True
+ITEM_LIST_LENGTH_FIELD = item_length
+LIST_SUFFIX = _list
+MAX_ITEM_LIST_LENGTH = 50
+POSITION_FIELD = position_id
+HEAD_ENTITY_ID_FIELD = head_id
+TAIL_ENTITY_ID_FIELD = tail_id
+RELATION_ID_FIELD = relation_id
+ENTITY_ID_FIELD = entity_id
+benchmark_filename = ['p1', 'p2', 'p3']
+
+Other Hyper Parameters: 
+save_pos_pairs = True
+pos_pairs_save_path = None
+wandb_project = recbole
+require_pow = False
+embedding_size = 64
+encoder = MF
+n_layers = 2
+gamma = 1
+MODEL_TYPE = ModelType.GENERAL
+eval = unbiased
+MODEL_INPUT_TYPE = InputType.POINTWISE
+eval_type = EvaluatorType.RANKING
+device = cuda
+train_neg_sample_args = {'strategy': 'none', 'in_batch': False}
+eval_neg_sample_args = {'strategy': 'full', 'distribution': 'uniform'}
+
+
+Tue 21 Feb 2023 13:23:02 INFO  ml-1m
+The number of users: 6041
+Average actions of users: 165.5975165562914
+The number of items: 3707
+Average actions of items: 269.88909875876953
+The number of inters: 1000209
+The sparsity of the dataset: 95.53358229599758%
+Remain Fields: ['user_id', 'item_id']
+Tue 21 Feb 2023 13:23:04 INFO  [Training]: train_batch_size = [1024] negative sampling: [None]
+Tue 21 Feb 2023 13:23:04 INFO  [Evaluation]: eval_batch_size = [1048576] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Tue 21 Feb 2023 13:23:06 INFO  DirectAU(
+  (encoder): MFEncoder(
+    (user_embedding): Embedding(6041, 64)
+    (item_embedding): Embedding(3707, 64)
+  )
+)
+Trainable parameters: 623872
+Tue 21 Feb 2023 13:23:51 INFO  epoch 0 training [time: 41.55s, train loss: -922.7717]
+Tue 21 Feb 2023 13:23:52 INFO  epoch 0 evaluating [time: 1.19s, valid_score: 0.000059]
+Tue 21 Feb 2023 13:23:52 INFO  valid result: 
+recall@10 : 9.772981894e-06    recall@20 : 7.3226065424e-05    recall@50 : 8.0763468338e-05    ndcg@10 : 5.2631202007e-05    ndcg@20 : 5.9298686493e-05    ndcg@50 : 5.3078458251e-05
+Tue 21 Feb 2023 13:23:52 INFO  Saving current: saved/DirectAU-ml-1m-Feb-21-2023_13-23-09.pth
+Tue 21 Feb 2023 13:24:33 INFO  epoch 1 training [time: 41.17s, train loss: -1060.7404]
+Tue 21 Feb 2023 13:24:33 INFO  epoch 1 evaluating [time: 0.22s, valid_score: 0.000061]
+Tue 21 Feb 2023 13:24:33 INFO  valid result: 
+recall@10 : 7.3408414983e-05    recall@20 : 7.8865020886e-05    recall@50 : 9.3812202736e-05    ndcg@10 : 6.6176748594e-05    ndcg@20 : 6.1362174997e-05    ndcg@50 : 6.0705588129e-05
+Tue 21 Feb 2023 13:24:33 INFO  Saving current: saved/DirectAU-ml-1m-Feb-21-2023_13-23-09.pth
+Tue 21 Feb 2023 13:25:15 INFO  epoch 2 training [time: 41.47s, train loss: -1112.3599]
+Tue 21 Feb 2023 13:25:15 INFO  epoch 2 evaluating [time: 0.22s, valid_score: 0.000021]
+Tue 21 Feb 2023 13:25:15 INFO  valid result: 
+recall@10 : 9.147177177e-06    recall@20 : 1.9266528084e-05    recall@50 : 0.000103511855711    ndcg@10 : 1.9542645355e-05    ndcg@20 : 2.1355370935e-05    ndcg@50 : 4.9155119648e-05
+Tue 21 Feb 2023 13:25:57 INFO  epoch 3 training [time: 41.63s, train loss: -1132.7830]
+Tue 21 Feb 2023 13:25:57 INFO  epoch 3 evaluating [time: 0.22s, valid_score: 0.000019]
+Tue 21 Feb 2023 13:25:57 INFO  valid result: 
+recall@10 : 1.0596377552e-05    recall@20 : 1.9159024354e-05    recall@50 : 0.000100787984264    ndcg@10 : 1.665445362e-05    ndcg@20 : 1.9284017891e-05    ndcg@50 : 4.5182156585e-05
+Tue 21 Feb 2023 13:26:39 INFO  epoch 4 training [time: 41.84s, train loss: -1142.8582]
+Tue 21 Feb 2023 13:26:39 INFO  epoch 4 evaluating [time: 0.22s, valid_score: 0.000021]
+Tue 21 Feb 2023 13:26:39 INFO  valid result: 
+recall@10 : 1.182962633e-05    recall@20 : 2.1146949935e-05    recall@50 : 4.4958220422e-05    ndcg@10 : 1.8082023232e-05    ndcg@20 : 2.0677919817e-05    ndcg@50 : 2.9338614486e-05
+Tue 21 Feb 2023 13:27:21 INFO  epoch 5 training [time: 42.12s, train loss: -1148.7817]
+Tue 21 Feb 2023 13:27:21 INFO  epoch 5 evaluating [time: 0.22s, valid_score: 0.000022]
+Tue 21 Feb 2023 13:27:21 INFO  valid result: 
+recall@10 : 1.2797039538e-05    recall@20 : 2.3030316687e-05    recall@50 : 4.5000777367e-05    ndcg@10 : 1.9279392432e-05    ndcg@20 : 2.2118521141e-05    ndcg@50 : 2.972283535e-05
+Tue 21 Feb 2023 13:28:03 INFO  epoch 6 training [time: 42.11s, train loss: -1152.7093]
+Tue 21 Feb 2023 13:28:04 INFO  epoch 6 evaluating [time: 0.22s, valid_score: 0.000024]
+Tue 21 Feb 2023 13:28:04 INFO  valid result: 
+recall@10 : 1.432536854e-05    recall@20 : 2.3789294435e-05    recall@50 : 4.8664519826e-05    ndcg@10 : 2.1228273809e-05    ndcg@20 : 2.35927288e-05    ndcg@50 : 3.19743536e-05
+Tue 21 Feb 2023 13:28:46 INFO  epoch 7 training [time: 42.43s, train loss: -1155.8265]
+Tue 21 Feb 2023 13:28:46 INFO  epoch 7 evaluating [time: 0.23s, valid_score: 0.000024]
+Tue 21 Feb 2023 13:28:46 INFO  valid result: 
+recall@10 : 1.3887041515e-05    recall@20 : 2.4323588985e-05    recall@50 : 5.0231601592e-05    ndcg@10 : 2.1425457382e-05    ndcg@20 : 2.385480837e-05    ndcg@50 : 3.2919828386e-05
+Tue 21 Feb 2023 13:29:29 INFO  epoch 8 training [time: 42.60s, train loss: -1158.3978]
+Tue 21 Feb 2023 13:29:29 INFO  epoch 8 evaluating [time: 0.21s, valid_score: 0.000026]
+Tue 21 Feb 2023 13:29:29 INFO  valid result: 
+recall@10 : 1.4646881372e-05    recall@20 : 2.6221432628e-05    recall@50 : 5.3437102328e-05    ndcg@10 : 2.2788382011e-05    ndcg@20 : 2.6058544731e-05    ndcg@50 : 3.503320537e-05
+Tue 21 Feb 2023 13:30:12 INFO  epoch 9 training [time: 42.58s, train loss: -1160.7528]
+Tue 21 Feb 2023 13:30:12 INFO  epoch 9 evaluating [time: 0.19s, valid_score: 0.000027]
+Tue 21 Feb 2023 13:30:12 INFO  valid result: 
+recall@10 : 1.5700561014e-05    recall@20 : 2.8050807915e-05    recall@50 : 5.670992644e-05    ndcg@10 : 2.4158758173e-05    ndcg@20 : 2.7276417725e-05    ndcg@50 : 3.6915864785e-05
+Tue 21 Feb 2023 13:30:12 INFO  Total (train & valid) time: 422.83s
+Tue 21 Feb 2023 13:30:12 INFO  Loading model structure and parameters from saved/DirectAU-ml-1m-Feb-21-2023_13-23-09.pth
+Tue 21 Feb 2023 13:30:12 INFO  best valid : OrderedDict([('recall@10', 7.3408414983e-05), ('recall@20', 7.8865020886e-05), ('recall@50', 9.3812202736e-05), ('ndcg@10', 6.6176748594e-05), ('ndcg@20', 6.1362174997e-05), ('ndcg@50', 6.0705588129e-05)])
+Tue 21 Feb 2023 13:30:12 INFO  test result: OrderedDict([('recall@10', 0.038317442048366), ('recall@20', 0.070274533572215), ('recall@50', 0.147031504180621), ('ndcg@10', 0.041272438050847), ('ndcg@20', 0.051350970154781), ('ndcg@50', 0.076737685032623)])

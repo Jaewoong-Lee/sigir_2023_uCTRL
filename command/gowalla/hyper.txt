@@ -1,0 +1,5 @@
+DirectAU
+python run_hyper.py --model=DirectAU --dataset=Gowalla --encoder=MF --n_layers=1 --params_file=search_hyper/directau.hyper --output_file=output_files/Gowalla/directau_mf --gpu_id=1
+
+DirectAU
+python run_hyper.py --model=DirectAU --dataset=Gowalla --encoder=LightGCN --n_layers=1 --params_file=search_hyper/directau.hyper --output_file=output_files/Gowalla/directau_gcn --gpu_id=1

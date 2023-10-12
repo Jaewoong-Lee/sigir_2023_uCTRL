@@ -1,0 +1,688 @@
+Sat 18 Feb 2023 17:50:20 INFO  
+General Hyper Parameters:
+gpu_id = 1
+use_gpu = True
+seed = 0
+state = INFO
+reproducibility = True
+data_path = dataset/Gowalla2
+checkpoint_dir = saved
+show_progress = False
+save_dataset = False
+dataset_save_path = None
+save_dataloaders = True
+dataloaders_save_path = None
+log_wandb = False
+
+Training Hyper Parameters:
+epochs = 500
+train_batch_size = 1024
+learner = adam
+learning_rate = 0.001
+neg_sampling = None
+eval_step = 1
+stopping_step = 10
+clip_grad_norm = None
+weight_decay = 0
+loss_decimal_place = 4
+
+Evaluation Hyper Parameters:
+eval_args = {'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}
+repeatable = False
+metrics = ['Recall', 'NDCG']
+topk = [10, 20, 50]
+valid_metric = NDCG@20
+valid_metric_bigger = True
+eval_batch_size = 1048576
+metric_decimal_place = 15
+
+Dataset Hyper Parameters:
+field_separator = 	
+seq_separator =  
+USER_ID_FIELD = user_id
+ITEM_ID_FIELD = item_id
+RATING_FIELD = rating
+TIME_FIELD = timestamp
+seq_len = None
+LABEL_FIELD = label
+threshold = None
+NEG_PREFIX = neg_
+load_col = {'inter': ['user_id', 'item_id', 'timestamp']}
+unload_col = None
+unused_col = None
+additional_feat_suffix = None
+rm_dup_inter = last
+val_interval = None
+filter_inter_by_user_or_item = True
+user_inter_num_interval = [5,inf)
+item_inter_num_interval = [5,inf)
+alias_of_user_id = None
+alias_of_item_id = None
+alias_of_entity_id = None
+alias_of_relation_id = None
+preload_weight = None
+normalize_field = None
+normalize_all = True
+ITEM_LIST_LENGTH_FIELD = item_length
+LIST_SUFFIX = _list
+MAX_ITEM_LIST_LENGTH = 50
+POSITION_FIELD = position_id
+HEAD_ENTITY_ID_FIELD = head_id
+TAIL_ENTITY_ID_FIELD = tail_id
+RELATION_ID_FIELD = relation_id
+ENTITY_ID_FIELD = entity_id
+benchmark_filename = ['p1', 'p2', 'p3']
+
+Other Hyper Parameters: 
+save_pos_pairs = True
+pos_pairs_save_path = None
+wandb_project = recbole
+require_pow = False
+embedding_size = 64
+encoder = MF
+n_layers = 2
+gamma1 = 0.5
+gamma2 = 50
+freeze_epoch = 5
+MODEL_TYPE = ModelType.GENERAL
+eval = unbiased
+MODEL_INPUT_TYPE = InputType.POINTWISE
+eval_type = EvaluatorType.RANKING
+device = cuda
+train_neg_sample_args = {'strategy': 'none', 'in_batch': False}
+eval_neg_sample_args = {'strategy': 'full', 'distribution': 'uniform'}
+
+
+Sat 18 Feb 2023 17:50:24 INFO  Gowalla2
+The number of users: 29859
+Average actions of users: 30.96768035367406
+The number of items: 40982
+Average actions of items: 22.56248017373905
+The number of inters: 924633
+The sparsity of the dataset: 99.92443842852191%
+Remain Fields: ['user_id', 'item_id']
+Sat 18 Feb 2023 17:50:27 INFO  [Training]: train_batch_size = [1024] negative sampling: [None]
+Sat 18 Feb 2023 17:50:27 INFO  [Evaluation]: eval_batch_size = [1048576] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Sat 18 Feb 2023 17:50:30 INFO  UCTRL(
+  (encoder): MFEncoder(
+    (user_embedding): Embedding(29859, 64)
+    (item_embedding): Embedding(40982, 64)
+  )
+)
+Trainable parameters: 4533824
+Sat 18 Feb 2023 17:50:59 INFO  epoch 0 training [time: 26.28s, train loss: -133205.5882]
+Sat 18 Feb 2023 17:51:02 INFO  epoch 0 evaluating [time: 3.01s, valid_score: 0.000013]
+Sat 18 Feb 2023 17:51:02 INFO  valid result: 
+recall@10 : 1.0206164488e-05    recall@20 : 2.5234033887e-05    recall@50 : 4.8549463841e-05    ndcg@10 : 7.745980346e-06    ndcg@20 : 1.328276379e-05    ndcg@50 : 2.0295759799e-05
+Sat 18 Feb 2023 17:51:02 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 17:51:27 INFO  epoch 1 training [time: 24.68s, train loss: -133612.3225]
+Sat 18 Feb 2023 17:51:30 INFO  epoch 1 evaluating [time: 3.02s, valid_score: 0.000088]
+Sat 18 Feb 2023 17:51:30 INFO  valid result: 
+recall@10 : 8.5736646031e-05    recall@20 : 0.000158068454416    recall@50 : 0.000299352392086    ndcg@10 : 6.3115319583e-05    ndcg@20 : 8.76109444e-05    ndcg@50 : 0.000128193522959
+Sat 18 Feb 2023 17:51:30 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 17:51:55 INFO  epoch 2 training [time: 24.76s, train loss: -133839.1360]
+Sat 18 Feb 2023 17:51:58 INFO  epoch 2 evaluating [time: 2.73s, valid_score: 0.000247]
+Sat 18 Feb 2023 17:51:58 INFO  valid result: 
+recall@10 : 0.00026180375654    recall@20 : 0.00047248698667    recall@50 : 0.000976665040872    ndcg@10 : 0.000177240603768    ndcg@20 : 0.000246869291944    ndcg@50 : 0.000385916569416
+Sat 18 Feb 2023 17:51:58 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 17:52:23 INFO  epoch 3 training [time: 24.75s, train loss: -133961.9313]
+Sat 18 Feb 2023 17:52:25 INFO  epoch 3 evaluating [time: 2.20s, valid_score: 0.000424]
+Sat 18 Feb 2023 17:52:25 INFO  valid result: 
+recall@10 : 0.000469834517294    recall@20 : 0.000833284915277    recall@50 : 0.001721619361072    ndcg@10 : 0.000305414891938    ndcg@20 : 0.00042410499418    ndcg@50 : 0.000664483855202
+Sat 18 Feb 2023 17:52:25 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 17:52:50 INFO  epoch 4 training [time: 24.91s, train loss: -134036.4124]
+Sat 18 Feb 2023 17:52:52 INFO  epoch 4 evaluating [time: 2.42s, valid_score: 0.000550]
+Sat 18 Feb 2023 17:52:52 INFO  valid result: 
+recall@10 : 0.000615417174304    recall@20 : 0.001082319770198    recall@50 : 0.002177030701102    ndcg@10 : 0.000397051191689    ndcg@20 : 0.000550107681939    ndcg@50 : 0.000844442487364
+Sat 18 Feb 2023 17:52:53 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 17:53:18 INFO  epoch 5 training [time: 24.96s, train loss: -134088.1553]
+Sat 18 Feb 2023 17:53:20 INFO  epoch 5 evaluating [time: 2.21s, valid_score: 0.000666]
+Sat 18 Feb 2023 17:53:20 INFO  valid result: 
+recall@10 : 0.000712367825405    recall@20 : 0.001304384232979    recall@50 : 0.002633013110143    ndcg@10 : 0.000475035695275    ndcg@20 : 0.000665684237724    ndcg@50 : 0.001017772325119
+Sat 18 Feb 2023 17:53:20 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 17:53:45 INFO  epoch 6 training [time: 25.05s, train loss: -134125.3330]
+Sat 18 Feb 2023 17:53:47 INFO  epoch 6 evaluating [time: 2.21s, valid_score: 0.000740]
+Sat 18 Feb 2023 17:53:47 INFO  valid result: 
+recall@10 : 0.000788801024402    recall@20 : 0.00140003966432    recall@50 : 0.002876832611904    ndcg@10 : 0.000542544199532    ndcg@20 : 0.000739606397518    ndcg@50 : 0.001132384250833
+Sat 18 Feb 2023 17:53:48 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 17:54:13 INFO  epoch 7 training [time: 25.10s, train loss: -134156.1873]
+Sat 18 Feb 2023 17:54:15 INFO  epoch 7 evaluating [time: 2.47s, valid_score: 0.000808]
+Sat 18 Feb 2023 17:54:15 INFO  valid result: 
+recall@10 : 0.000871630441621    recall@20 : 0.00156125661187    recall@50 : 0.00318179791955    ndcg@10 : 0.000586210965134    ndcg@20 : 0.000808259743119    ndcg@50 : 0.001238683677466
+Sat 18 Feb 2023 17:54:15 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 17:54:40 INFO  epoch 8 training [time: 25.11s, train loss: -134177.6699]
+Sat 18 Feb 2023 17:54:43 INFO  epoch 8 evaluating [time: 3.05s, valid_score: 0.000874]
+Sat 18 Feb 2023 17:54:43 INFO  valid result: 
+recall@10 : 0.000965092183426    recall@20 : 0.001685990359881    recall@50 : 0.003361415430895    ndcg@10 : 0.000638043435093    ndcg@20 : 0.000873753663511    ndcg@50 : 0.001317139201366
+Sat 18 Feb 2023 17:54:44 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 17:55:09 INFO  epoch 9 training [time: 25.12s, train loss: -134198.5985]
+Sat 18 Feb 2023 17:55:12 INFO  epoch 9 evaluating [time: 2.96s, valid_score: 0.000923]
+Sat 18 Feb 2023 17:55:12 INFO  valid result: 
+recall@10 : 0.000983824681669    recall@20 : 0.00178242771989    recall@50 : 0.003525155509812    ndcg@10 : 0.000668977572664    ndcg@20 : 0.000922811486984    ndcg@50 : 0.001381166523826
+Sat 18 Feb 2023 17:55:12 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 17:55:37 INFO  epoch 10 training [time: 25.36s, train loss: -134214.0817]
+Sat 18 Feb 2023 17:55:42 INFO  epoch 10 evaluating [time: 4.14s, valid_score: 0.000996]
+Sat 18 Feb 2023 17:55:42 INFO  valid result: 
+recall@10 : 0.001093573928337    recall@20 : 0.001944456018331    recall@50 : 0.003667936150467    ndcg@10 : 0.000726682530035    ndcg@20 : 0.000995858357645    ndcg@50 : 0.001456603379962
+Sat 18 Feb 2023 17:55:42 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 17:56:07 INFO  epoch 11 training [time: 25.23s, train loss: -134229.8116]
+Sat 18 Feb 2023 17:56:11 INFO  epoch 11 evaluating [time: 4.33s, valid_score: 0.001005]
+Sat 18 Feb 2023 17:56:11 INFO  valid result: 
+recall@10 : 0.001147649691582    recall@20 : 0.00191243373351    recall@50 : 0.003883308830536    ndcg@10 : 0.000754734378879    ndcg@20 : 0.001005076701264    ndcg@50 : 0.001523363007507
+Sat 18 Feb 2023 17:56:11 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 17:56:37 INFO  epoch 12 training [time: 25.10s, train loss: -134244.7516]
+Sat 18 Feb 2023 17:56:41 INFO  epoch 12 evaluating [time: 4.69s, valid_score: 0.001041]
+Sat 18 Feb 2023 17:56:41 INFO  valid result: 
+recall@10 : 0.001135065585076    recall@20 : 0.001972473661134    recall@50 : 0.003940360776032    ndcg@10 : 0.000767288931051    ndcg@20 : 0.001041224557281    ndcg@50 : 0.001559130745045
+Sat 18 Feb 2023 17:56:41 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 17:57:07 INFO  epoch 13 training [time: 25.14s, train loss: -134255.9902]
+Sat 18 Feb 2023 17:57:10 INFO  epoch 13 evaluating [time: 3.66s, valid_score: 0.001074]
+Sat 18 Feb 2023 17:57:10 INFO  valid result: 
+recall@10 : 0.001180860964379    recall@20 : 0.002060468577025    recall@50 : 0.004028136615432    ndcg@10 : 0.000787886470784    ndcg@20 : 0.001074367462887    ndcg@50 : 0.001597253415343
+Sat 18 Feb 2023 17:57:11 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 17:57:36 INFO  epoch 14 training [time: 25.11s, train loss: -134267.7213]
+Sat 18 Feb 2023 17:57:39 INFO  epoch 14 evaluating [time: 3.20s, valid_score: 0.001064]
+Sat 18 Feb 2023 17:57:39 INFO  valid result: 
+recall@10 : 0.001165023309724    recall@20 : 0.002027614413959    recall@50 : 0.004155873712583    ndcg@10 : 0.000781365202492    ndcg@20 : 0.001064200949297    ndcg@50 : 0.001624280743603
+Sat 18 Feb 2023 17:58:04 INFO  epoch 15 training [time: 25.13s, train loss: -134276.6500]
+Sat 18 Feb 2023 17:58:06 INFO  epoch 15 evaluating [time: 2.20s, valid_score: 0.001102]
+Sat 18 Feb 2023 17:58:06 INFO  valid result: 
+recall@10 : 0.00123121940463    recall@20 : 0.002083193385794    recall@50 : 0.004242470792248    ndcg@10 : 0.000825617731669    ndcg@20 : 0.001102102465174    ndcg@50 : 0.001675885204623
+Sat 18 Feb 2023 17:58:06 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 17:58:31 INFO  epoch 16 training [time: 25.10s, train loss: -134283.9614]
+Sat 18 Feb 2023 17:58:34 INFO  epoch 16 evaluating [time: 2.19s, valid_score: 0.001135]
+Sat 18 Feb 2023 17:58:34 INFO  valid result: 
+recall@10 : 0.001244868548798    recall@20 : 0.002165443889952    recall@50 : 0.004271227924944    ndcg@10 : 0.000837280307879    ndcg@20 : 0.001134758640656    ndcg@50 : 0.001692091819244
+Sat 18 Feb 2023 17:58:34 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 17:58:59 INFO  epoch 17 training [time: 25.12s, train loss: -134294.5067]
+Sat 18 Feb 2023 17:59:01 INFO  epoch 17 evaluating [time: 2.18s, valid_score: 0.001157]
+Sat 18 Feb 2023 17:59:01 INFO  valid result: 
+recall@10 : 0.001262879588531    recall@20 : 0.002174234094491    recall@50 : 0.004413409207115    ndcg@10 : 0.000864439643985    ndcg@20 : 0.001156569968856    ndcg@50 : 0.001747706929639
+Sat 18 Feb 2023 17:59:01 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 17:59:27 INFO  epoch 18 training [time: 25.14s, train loss: -134301.0548]
+Sat 18 Feb 2023 17:59:29 INFO  epoch 18 evaluating [time: 2.18s, valid_score: 0.001184]
+Sat 18 Feb 2023 17:59:29 INFO  valid result: 
+recall@10 : 0.001348355738114    recall@20 : 0.002222102364666    recall@50 : 0.00450427936426    ndcg@10 : 0.000896543503793    ndcg@20 : 0.001183521286856    ndcg@50 : 0.001780200292923
+Sat 18 Feb 2023 17:59:29 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 17:59:54 INFO  epoch 19 training [time: 25.15s, train loss: -134307.8923]
+Sat 18 Feb 2023 17:59:56 INFO  epoch 19 evaluating [time: 2.32s, valid_score: 0.001226]
+Sat 18 Feb 2023 17:59:56 INFO  valid result: 
+recall@10 : 0.001336146284889    recall@20 : 0.002282334321118    recall@50 : 0.004492847173221    ndcg@10 : 0.000921661160576    ndcg@20 : 0.001225792659073    ndcg@50 : 0.001809599635793
+Sat 18 Feb 2023 17:59:57 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:00:22 INFO  epoch 20 training [time: 25.17s, train loss: -134313.4965]
+Sat 18 Feb 2023 18:00:24 INFO  epoch 20 evaluating [time: 2.19s, valid_score: 0.001241]
+Sat 18 Feb 2023 18:00:24 INFO  valid result: 
+recall@10 : 0.001370813178027    recall@20 : 0.002319584547057    recall@50 : 0.004541457662159    ndcg@10 : 0.00093255236957    ndcg@20 : 0.001240723779459    ndcg@50 : 0.001825439080689
+Sat 18 Feb 2023 18:00:24 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:00:49 INFO  epoch 21 training [time: 25.15s, train loss: -134319.6258]
+Sat 18 Feb 2023 18:00:52 INFO  epoch 21 evaluating [time: 2.33s, valid_score: 0.001228]
+Sat 18 Feb 2023 18:00:52 INFO  valid result: 
+recall@10 : 0.001376062853335    recall@20 : 0.002310912175619    recall@50 : 0.004531909409037    ndcg@10 : 0.000924533023891    ndcg@20 : 0.001227546398319    ndcg@50 : 0.001819597279997
+Sat 18 Feb 2023 18:01:17 INFO  epoch 22 training [time: 25.15s, train loss: -134324.8092]
+Sat 18 Feb 2023 18:01:19 INFO  epoch 22 evaluating [time: 2.36s, valid_score: 0.001258]
+Sat 18 Feb 2023 18:01:19 INFO  valid result: 
+recall@10 : 0.001367694439096    recall@20 : 0.002389497067656    recall@50 : 0.004604781691508    ndcg@10 : 0.000927635430174    ndcg@20 : 0.001257897792161    ndcg@50 : 0.001848739224423
+Sat 18 Feb 2023 18:01:19 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:01:45 INFO  epoch 23 training [time: 25.17s, train loss: -134330.0339]
+Sat 18 Feb 2023 18:01:47 INFO  epoch 23 evaluating [time: 2.21s, valid_score: 0.001285]
+Sat 18 Feb 2023 18:01:47 INFO  valid result: 
+recall@10 : 0.001384227206592    recall@20 : 0.002453751155809    recall@50 : 0.004668021882957    ndcg@10 : 0.000947788551019    ndcg@20 : 0.001285206365952    ndcg@50 : 0.001880969092425
+Sat 18 Feb 2023 18:01:47 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:02:12 INFO  epoch 24 training [time: 25.14s, train loss: -134334.0349]
+Sat 18 Feb 2023 18:02:14 INFO  epoch 24 evaluating [time: 2.24s, valid_score: 0.001315]
+Sat 18 Feb 2023 18:02:14 INFO  valid result: 
+recall@10 : 0.001419254081131    recall@20 : 0.002463261313911    recall@50 : 0.004739498446513    ndcg@10 : 0.000981959576877    ndcg@20 : 0.001315266396776    ndcg@50 : 0.001923477033934
+Sat 18 Feb 2023 18:02:15 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:02:40 INFO  epoch 25 training [time: 25.21s, train loss: -134340.3153]
+Sat 18 Feb 2023 18:02:42 INFO  epoch 25 evaluating [time: 2.18s, valid_score: 0.001310]
+Sat 18 Feb 2023 18:02:42 INFO  valid result: 
+recall@10 : 0.001441139640731    recall@20 : 0.00247008376779    recall@50 : 0.004754474640085    ndcg@10 : 0.000981323750301    ndcg@20 : 0.001309921429274    ndcg@50 : 0.001920904303021
+Sat 18 Feb 2023 18:03:07 INFO  epoch 26 training [time: 25.23s, train loss: -134344.4371]
+Sat 18 Feb 2023 18:03:09 INFO  epoch 26 evaluating [time: 2.28s, valid_score: 0.001334]
+Sat 18 Feb 2023 18:03:09 INFO  valid result: 
+recall@10 : 0.001486793670494    recall@20 : 0.002510904065054    recall@50 : 0.004859192400956    ndcg@10 : 0.001000616611457    ndcg@20 : 0.001333930084717    ndcg@50 : 0.001956632182615
+Sat 18 Feb 2023 18:03:10 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:03:35 INFO  epoch 27 training [time: 25.18s, train loss: -134347.4465]
+Sat 18 Feb 2023 18:03:37 INFO  epoch 27 evaluating [time: 2.27s, valid_score: 0.001336]
+Sat 18 Feb 2023 18:03:37 INFO  valid result: 
+recall@10 : 0.001487283329626    recall@20 : 0.002533876783726    recall@50 : 0.004884364059229    ndcg@10 : 0.000996433995045    ndcg@20 : 0.001335728246641    ndcg@50 : 0.001959642420664
+Sat 18 Feb 2023 18:03:37 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:04:03 INFO  epoch 28 training [time: 25.19s, train loss: -134351.3808]
+Sat 18 Feb 2023 18:04:05 INFO  epoch 28 evaluating [time: 2.23s, valid_score: 0.001338]
+Sat 18 Feb 2023 18:04:05 INFO  valid result: 
+recall@10 : 0.001499031088418    recall@20 : 0.002521127002267    recall@50 : 0.00492396166576    ndcg@10 : 0.001009207765578    ndcg@20 : 0.001337937662232    ndcg@50 : 0.001974286644477
+Sat 18 Feb 2023 18:04:05 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:04:30 INFO  epoch 29 training [time: 25.20s, train loss: -134356.2844]
+Sat 18 Feb 2023 18:04:32 INFO  epoch 29 evaluating [time: 2.24s, valid_score: 0.001329]
+Sat 18 Feb 2023 18:04:32 INFO  valid result: 
+recall@10 : 0.001445795890056    recall@20 : 0.002527244886493    recall@50 : 0.00496131497795    ndcg@10 : 0.000981533651351    ndcg@20 : 0.001328534311476    ndcg@50 : 0.001968928756743
+Sat 18 Feb 2023 18:04:58 INFO  epoch 30 training [time: 25.21s, train loss: -134358.7471]
+Sat 18 Feb 2023 18:05:00 INFO  epoch 30 evaluating [time: 2.23s, valid_score: 0.001332]
+Sat 18 Feb 2023 18:05:00 INFO  valid result: 
+recall@10 : 0.001486063349525    recall@20 : 0.002499881548125    recall@50 : 0.0049994621703    ndcg@10 : 0.00100746442995    ndcg@20 : 0.001331885904933    ndcg@50 : 0.001989678072191
+Sat 18 Feb 2023 18:05:25 INFO  epoch 31 training [time: 25.27s, train loss: -134359.8337]
+Sat 18 Feb 2023 18:05:27 INFO  epoch 31 evaluating [time: 2.24s, valid_score: 0.001363]
+Sat 18 Feb 2023 18:05:27 INFO  valid result: 
+recall@10 : 0.001479007179817    recall@20 : 0.002572038805414    recall@50 : 0.004999402011762    ndcg@10 : 0.001011968552807    ndcg@20 : 0.001363064817963    ndcg@50 : 0.002005225440616
+Sat 18 Feb 2023 18:05:28 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:05:53 INFO  epoch 32 training [time: 25.24s, train loss: -134364.7288]
+Sat 18 Feb 2023 18:05:55 INFO  epoch 32 evaluating [time: 2.23s, valid_score: 0.001357]
+Sat 18 Feb 2023 18:05:55 INFO  valid result: 
+recall@10 : 0.001513147908925    recall@20 : 0.002545864082856    recall@50 : 0.004949236221675    ndcg@10 : 0.001025135269526    ndcg@20 : 0.001356733175973    ndcg@50 : 0.001995425409444
+Sat 18 Feb 2023 18:06:20 INFO  epoch 33 training [time: 25.22s, train loss: -134366.0022]
+Sat 18 Feb 2023 18:06:23 INFO  epoch 33 evaluating [time: 2.25s, valid_score: 0.001367]
+Sat 18 Feb 2023 18:06:23 INFO  valid result: 
+recall@10 : 0.001511771337979    recall@20 : 0.002578583025738    recall@50 : 0.005043692133174    ndcg@10 : 0.001022789156458    ndcg@20 : 0.001366758609009    ndcg@50 : 0.002015393424094
+Sat 18 Feb 2023 18:06:23 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:06:48 INFO  epoch 34 training [time: 25.24s, train loss: -134369.8138]
+Sat 18 Feb 2023 18:06:50 INFO  epoch 34 evaluating [time: 2.23s, valid_score: 0.001377]
+Sat 18 Feb 2023 18:06:50 INFO  valid result: 
+recall@10 : 0.001545153226355    recall@20 : 0.002603141986899    recall@50 : 0.005021301106129    ndcg@10 : 0.001038562352566    ndcg@20 : 0.001377151742118    ndcg@50 : 0.002017550818456
+Sat 18 Feb 2023 18:06:50 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:07:16 INFO  epoch 35 training [time: 25.24s, train loss: -134373.4418]
+Sat 18 Feb 2023 18:07:18 INFO  epoch 35 evaluating [time: 2.23s, valid_score: 0.001391]
+Sat 18 Feb 2023 18:07:18 INFO  valid result: 
+recall@10 : 0.001526578260032    recall@20 : 0.002647655902942    recall@50 : 0.005055889979126    ndcg@10 : 0.001027994099896    ndcg@20 : 0.001391325420014    ndcg@50 : 0.002027170308542
+Sat 18 Feb 2023 18:07:18 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:07:43 INFO  epoch 36 training [time: 25.20s, train loss: -134376.7583]
+Sat 18 Feb 2023 18:07:46 INFO  epoch 36 evaluating [time: 2.24s, valid_score: 0.001436]
+Sat 18 Feb 2023 18:07:46 INFO  valid result: 
+recall@10 : 0.001550049161987    recall@20 : 0.002728242929642    recall@50 : 0.0049844718615    ndcg@10 : 0.00105888710967    ndcg@20 : 0.001435719455204    ndcg@50 : 0.002034613954061
+Sat 18 Feb 2023 18:07:46 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:08:11 INFO  epoch 37 training [time: 25.22s, train loss: -134377.6084]
+Sat 18 Feb 2023 18:08:13 INFO  epoch 37 evaluating [time: 2.19s, valid_score: 0.001413]
+Sat 18 Feb 2023 18:08:13 INFO  valid result: 
+recall@10 : 0.001549286410416    recall@20 : 0.002643871701529    recall@50 : 0.005042447378542    ndcg@10 : 0.001059460182717    ndcg@20 : 0.001412631525102    ndcg@50 : 0.002048308062676
+Sat 18 Feb 2023 18:08:39 INFO  epoch 38 training [time: 25.35s, train loss: -134380.0587]
+Sat 18 Feb 2023 18:08:41 INFO  epoch 38 evaluating [time: 2.33s, valid_score: 0.001412]
+Sat 18 Feb 2023 18:08:41 INFO  valid result: 
+recall@10 : 0.001550855038527    recall@20 : 0.002637641338321    recall@50 : 0.005050870824339    ndcg@10 : 0.00105974908884    ndcg@20 : 0.001411950509606    ndcg@50 : 0.002049400750898
+Sat 18 Feb 2023 18:09:06 INFO  epoch 39 training [time: 25.28s, train loss: -134380.4075]
+Sat 18 Feb 2023 18:09:08 INFO  epoch 39 evaluating [time: 2.32s, valid_score: 0.001399]
+Sat 18 Feb 2023 18:09:08 INFO  valid result: 
+recall@10 : 0.001555055147716    recall@20 : 0.002656009091998    recall@50 : 0.005085625891823    ndcg@10 : 0.00104477444873    ndcg@20 : 0.001399035963984    ndcg@50 : 0.002042236885603
+Sat 18 Feb 2023 18:09:34 INFO  epoch 40 training [time: 25.20s, train loss: -134384.2599]
+Sat 18 Feb 2023 18:09:36 INFO  epoch 40 evaluating [time: 2.20s, valid_score: 0.001393]
+Sat 18 Feb 2023 18:09:36 INFO  valid result: 
+recall@10 : 0.001571215234346    recall@20 : 0.002631260127844    recall@50 : 0.005092354907082    ndcg@10 : 0.001052341861296    ndcg@20 : 0.00139312331949    ndcg@50 : 0.002048307167137
+Sat 18 Feb 2023 18:10:01 INFO  epoch 41 training [time: 25.19s, train loss: -134385.8524]
+Sat 18 Feb 2023 18:10:03 INFO  epoch 41 evaluating [time: 2.32s, valid_score: 0.001391]
+Sat 18 Feb 2023 18:10:03 INFO  valid result: 
+recall@10 : 0.001534873034829    recall@20 : 0.002627142287899    recall@50 : 0.005113068215243    ndcg@10 : 0.001038045886007    ndcg@20 : 0.001390547508158    ndcg@50 : 0.002050262105142
+Sat 18 Feb 2023 18:10:29 INFO  epoch 42 training [time: 25.32s, train loss: -134387.3861]
+Sat 18 Feb 2023 18:10:31 INFO  epoch 42 evaluating [time: 2.56s, valid_score: 0.001379]
+Sat 18 Feb 2023 18:10:31 INFO  valid result: 
+recall@10 : 0.001544161510765    recall@20 : 0.002608382972395    recall@50 : 0.005084478612892    ndcg@10 : 0.00103464815606    ndcg@20 : 0.001378951246103    ndcg@50 : 0.002039636751756
+Sat 18 Feb 2023 18:10:56 INFO  epoch 43 training [time: 25.23s, train loss: -134389.7393]
+Sat 18 Feb 2023 18:10:59 INFO  epoch 43 evaluating [time: 2.19s, valid_score: 0.001410]
+Sat 18 Feb 2023 18:10:59 INFO  valid result: 
+recall@10 : 0.001567594080236    recall@20 : 0.002658000779536    recall@50 : 0.005159478005129    ndcg@10 : 0.001057001944016    ndcg@20 : 0.001409752311419    ndcg@50 : 0.00207679431333
+Sat 18 Feb 2023 18:11:24 INFO  epoch 44 training [time: 25.21s, train loss: -134393.5345]
+Sat 18 Feb 2023 18:11:26 INFO  epoch 44 evaluating [time: 2.31s, valid_score: 0.001413]
+Sat 18 Feb 2023 18:11:26 INFO  valid result: 
+recall@10 : 0.001567027846613    recall@20 : 0.002664585034477    recall@50 : 0.005147858562056    ndcg@10 : 0.001058259323595    ndcg@20 : 0.001413075409627    ndcg@50 : 0.002072842040496
+Sat 18 Feb 2023 18:11:51 INFO  epoch 45 training [time: 25.19s, train loss: -134393.8417]
+Sat 18 Feb 2023 18:11:54 INFO  epoch 45 evaluating [time: 2.27s, valid_score: 0.001433]
+Sat 18 Feb 2023 18:11:54 INFO  valid result: 
+recall@10 : 0.001626521314611    recall@20 : 0.002730718502241    recall@50 : 0.005149630152248    ndcg@10 : 0.001080018234779    ndcg@20 : 0.001432605478116    ndcg@50 : 0.002075228973854
+Sat 18 Feb 2023 18:12:19 INFO  epoch 46 training [time: 25.24s, train loss: -134395.9149]
+Sat 18 Feb 2023 18:12:21 INFO  epoch 46 evaluating [time: 2.22s, valid_score: 0.001422]
+Sat 18 Feb 2023 18:12:21 INFO  valid result: 
+recall@10 : 0.001624762761642    recall@20 : 0.002682168447504    recall@50 : 0.005184256379977    ndcg@10 : 0.001083233604883    ndcg@20 : 0.001422215307063    ndcg@50 : 0.002083736681821
+Sat 18 Feb 2023 18:12:46 INFO  epoch 47 training [time: 25.27s, train loss: -134396.4173]
+Sat 18 Feb 2023 18:12:49 INFO  epoch 47 evaluating [time: 2.23s, valid_score: 0.001445]
+Sat 18 Feb 2023 18:12:49 INFO  valid result: 
+recall@10 : 0.001577286293864    recall@20 : 0.002744650108167    recall@50 : 0.005189493100534    ndcg@10 : 0.001068854870939    ndcg@20 : 0.001444720642085    ndcg@50 : 0.002088575742948
+Sat 18 Feb 2023 18:12:49 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:13:14 INFO  epoch 48 training [time: 25.24s, train loss: -134398.0683]
+Sat 18 Feb 2023 18:13:16 INFO  epoch 48 evaluating [time: 2.25s, valid_score: 0.001446]
+Sat 18 Feb 2023 18:13:16 INFO  valid result: 
+recall@10 : 0.001595475572959    recall@20 : 0.002742219067437    recall@50 : 0.005266497686461    ndcg@10 : 0.001079001655824    ndcg@20 : 0.001445675984785    ndcg@50 : 0.002112824555624
+Sat 18 Feb 2023 18:13:17 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:13:42 INFO  epoch 49 training [time: 25.26s, train loss: -134400.5499]
+Sat 18 Feb 2023 18:13:44 INFO  epoch 49 evaluating [time: 2.34s, valid_score: 0.001469]
+Sat 18 Feb 2023 18:13:44 INFO  valid result: 
+recall@10 : 0.001618346479575    recall@20 : 0.002774039619739    recall@50 : 0.005219302375193    ndcg@10 : 0.001098311182634    ndcg@20 : 0.001468508888842    ndcg@50 : 0.002118596088087
+Sat 18 Feb 2023 18:13:44 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:14:10 INFO  epoch 50 training [time: 25.28s, train loss: -134401.1069]
+Sat 18 Feb 2023 18:14:12 INFO  epoch 50 evaluating [time: 2.30s, valid_score: 0.001469]
+Sat 18 Feb 2023 18:14:12 INFO  valid result: 
+recall@10 : 0.001637819368317    recall@20 : 0.002762848957352    recall@50 : 0.005226155964318    ndcg@10 : 0.001106390945403    ndcg@20 : 0.001469181386177    ndcg@50 : 0.002119512222121
+Sat 18 Feb 2023 18:14:12 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:14:37 INFO  epoch 51 training [time: 25.26s, train loss: -134401.9403]
+Sat 18 Feb 2023 18:14:40 INFO  epoch 51 evaluating [time: 2.27s, valid_score: 0.001470]
+Sat 18 Feb 2023 18:14:40 INFO  valid result: 
+recall@10 : 0.001630011893825    recall@20 : 0.002718785512785    recall@50 : 0.005256328288319    ndcg@10 : 0.001120267543256    ndcg@20 : 0.001470224591071    ndcg@50 : 0.002138603857799
+Sat 18 Feb 2023 18:14:40 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:15:05 INFO  epoch 52 training [time: 25.28s, train loss: -134405.5307]
+Sat 18 Feb 2023 18:15:07 INFO  epoch 52 evaluating [time: 2.27s, valid_score: 0.001478]
+Sat 18 Feb 2023 18:15:07 INFO  valid result: 
+recall@10 : 0.001632771916671    recall@20 : 0.002735756281748    recall@50 : 0.005277543757463    ndcg@10 : 0.001122322212467    ndcg@20 : 0.001477759271217    ndcg@50 : 0.002149377531015
+Sat 18 Feb 2023 18:15:08 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:15:33 INFO  epoch 53 training [time: 25.40s, train loss: -134406.3263]
+Sat 18 Feb 2023 18:15:35 INFO  epoch 53 evaluating [time: 2.36s, valid_score: 0.001471]
+Sat 18 Feb 2023 18:15:35 INFO  valid result: 
+recall@10 : 0.001665428054729    recall@20 : 0.002704229226969    recall@50 : 0.005311967537413    ndcg@10 : 0.001132120606019    ndcg@20 : 0.001471142078285    ndcg@50 : 0.002156664694826
+Sat 18 Feb 2023 18:16:01 INFO  epoch 54 training [time: 25.17s, train loss: -134407.7499]
+Sat 18 Feb 2023 18:16:03 INFO  epoch 54 evaluating [time: 2.18s, valid_score: 0.001470]
+Sat 18 Feb 2023 18:16:03 INFO  valid result: 
+recall@10 : 0.001651629631054    recall@20 : 0.0026982676756    recall@50 : 0.005282154549965    ndcg@10 : 0.00112490996972    ndcg@20 : 0.001469542292843    ndcg@50 : 0.002151776208832
+Sat 18 Feb 2023 18:16:28 INFO  epoch 55 training [time: 25.15s, train loss: -134408.4263]
+Sat 18 Feb 2023 18:16:31 INFO  epoch 55 evaluating [time: 3.48s, valid_score: 0.001471]
+Sat 18 Feb 2023 18:16:31 INFO  valid result: 
+recall@10 : 0.001634034150974    recall@20 : 0.002754037682444    recall@50 : 0.005287125397246    ndcg@10 : 0.001110258695095    ndcg@20 : 0.001471130183386    ndcg@50 : 0.002137154568274
+Sat 18 Feb 2023 18:16:57 INFO  epoch 56 training [time: 25.15s, train loss: -134408.9681]
+Sat 18 Feb 2023 18:17:00 INFO  epoch 56 evaluating [time: 3.39s, valid_score: 0.001454]
+Sat 18 Feb 2023 18:17:00 INFO  valid result: 
+recall@10 : 0.001660963096968    recall@20 : 0.002725102552705    recall@50 : 0.005259805240658    ndcg@10 : 0.001106591531972    ndcg@20 : 0.001454468713297    ndcg@50 : 0.00211905309555
+Sat 18 Feb 2023 18:17:25 INFO  epoch 57 training [time: 25.16s, train loss: -134409.8100]
+Sat 18 Feb 2023 18:17:28 INFO  epoch 57 evaluating [time: 2.39s, valid_score: 0.001468]
+Sat 18 Feb 2023 18:17:28 INFO  valid result: 
+recall@10 : 0.001674694105916    recall@20 : 0.002771674827791    recall@50 : 0.005245091806177    ndcg@10 : 0.001115598358952    ndcg@20 : 0.001467984039323    ndcg@50 : 0.002120611725938
+Sat 18 Feb 2023 18:17:53 INFO  epoch 58 training [time: 25.18s, train loss: -134413.6329]
+Sat 18 Feb 2023 18:17:55 INFO  epoch 58 evaluating [time: 2.19s, valid_score: 0.001462]
+Sat 18 Feb 2023 18:17:55 INFO  valid result: 
+recall@10 : 0.001685098310842    recall@20 : 0.00276058802825    recall@50 : 0.005241594332379    ndcg@10 : 0.001112697429615    ndcg@20 : 0.001461613129395    ndcg@50 : 0.002118267047411
+Sat 18 Feb 2023 18:18:20 INFO  epoch 59 training [time: 25.15s, train loss: -134415.2577]
+Sat 18 Feb 2023 18:18:22 INFO  epoch 59 evaluating [time: 2.28s, valid_score: 0.001485]
+Sat 18 Feb 2023 18:18:22 INFO  valid result: 
+recall@10 : 0.001683894141511    recall@20 : 0.002823235482901    recall@50 : 0.005184651783819    ndcg@10 : 0.001117142903759    ndcg@20 : 0.001484903707787    ndcg@50 : 0.002114691173149
+Sat 18 Feb 2023 18:18:23 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:18:48 INFO  epoch 60 training [time: 25.18s, train loss: -134413.8059]
+Sat 18 Feb 2023 18:18:50 INFO  epoch 60 evaluating [time: 2.23s, valid_score: 0.001461]
+Sat 18 Feb 2023 18:18:50 INFO  valid result: 
+recall@10 : 0.001638946186722    recall@20 : 0.002763730614309    recall@50 : 0.005256398974064    ndcg@10 : 0.001101285760483    ndcg@20 : 0.00146083304823    ndcg@50 : 0.002126273174377
+Sat 18 Feb 2023 18:19:15 INFO  epoch 61 training [time: 25.17s, train loss: -134414.7075]
+Sat 18 Feb 2023 18:19:17 INFO  epoch 61 evaluating [time: 2.31s, valid_score: 0.001462]
+Sat 18 Feb 2023 18:19:17 INFO  valid result: 
+recall@10 : 0.001701194463017    recall@20 : 0.002757929410648    recall@50 : 0.005275699620455    ndcg@10 : 0.00111843572347    ndcg@20 : 0.001461968626567    ndcg@50 : 0.00213078935763
+Sat 18 Feb 2023 18:19:43 INFO  epoch 62 training [time: 25.17s, train loss: -134416.0514]
+Sat 18 Feb 2023 18:19:45 INFO  epoch 62 evaluating [time: 2.19s, valid_score: 0.001469]
+Sat 18 Feb 2023 18:19:45 INFO  valid result: 
+recall@10 : 0.001674841262703    recall@20 : 0.002766184846157    recall@50 : 0.005290999963252    ndcg@10 : 0.001114875959344    ndcg@20 : 0.001469134529232    ndcg@50 : 0.002136252567974
+Sat 18 Feb 2023 18:20:10 INFO  epoch 63 training [time: 25.17s, train loss: -134416.2963]
+Sat 18 Feb 2023 18:20:12 INFO  epoch 63 evaluating [time: 2.31s, valid_score: 0.001475]
+Sat 18 Feb 2023 18:20:12 INFO  valid result: 
+recall@10 : 0.001660074379145    recall@20 : 0.002740873199376    recall@50 : 0.005300554301457    ndcg@10 : 0.001123659099181    ndcg@20 : 0.001474574515936    ndcg@50 : 0.00215504200672
+Sat 18 Feb 2023 18:20:38 INFO  epoch 64 training [time: 25.23s, train loss: -134416.4842]
+Sat 18 Feb 2023 18:20:40 INFO  epoch 64 evaluating [time: 2.30s, valid_score: 0.001474]
+Sat 18 Feb 2023 18:20:40 INFO  valid result: 
+recall@10 : 0.001676514619917    recall@20 : 0.002764295937953    recall@50 : 0.005297177733597    ndcg@10 : 0.001123574711762    ndcg@20 : 0.001473939420837    ndcg@50 : 0.002146641746517
+Sat 18 Feb 2023 18:21:05 INFO  epoch 65 training [time: 25.26s, train loss: -134418.5757]
+Sat 18 Feb 2023 18:21:07 INFO  epoch 65 evaluating [time: 2.26s, valid_score: 0.001471]
+Sat 18 Feb 2023 18:21:07 INFO  valid result: 
+recall@10 : 0.001644247163973    recall@20 : 0.002765126426918    recall@50 : 0.005319921336458    ndcg@10 : 0.001108816096465    ndcg@20 : 0.001470919580565    ndcg@50 : 0.002155533748471
+Sat 18 Feb 2023 18:21:33 INFO  epoch 66 training [time: 25.26s, train loss: -134419.9892]
+Sat 18 Feb 2023 18:21:35 INFO  epoch 66 evaluating [time: 2.25s, valid_score: 0.001489]
+Sat 18 Feb 2023 18:21:35 INFO  valid result: 
+recall@10 : 0.001631822071915    recall@20 : 0.002803490026365    recall@50 : 0.005309292382217    ndcg@10 : 0.001110352207669    ndcg@20 : 0.001488591237002    ndcg@50 : 0.002156956736047
+Sat 18 Feb 2023 18:21:35 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:22:00 INFO  epoch 67 training [time: 25.26s, train loss: -134419.7203]
+Sat 18 Feb 2023 18:22:03 INFO  epoch 67 evaluating [time: 2.27s, valid_score: 0.001492]
+Sat 18 Feb 2023 18:22:03 INFO  valid result: 
+recall@10 : 0.00165654638327    recall@20 : 0.00278941958949    recall@50 : 0.005307880439116    ndcg@10 : 0.001128190761154    ndcg@20 : 0.001491980351361    ndcg@50 : 0.002163030898259
+Sat 18 Feb 2023 18:22:03 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:22:28 INFO  epoch 68 training [time: 25.26s, train loss: -134423.0137]
+Sat 18 Feb 2023 18:22:30 INFO  epoch 68 evaluating [time: 2.26s, valid_score: 0.001492]
+Sat 18 Feb 2023 18:22:30 INFO  valid result: 
+recall@10 : 0.001644475502854    recall@20 : 0.002813249189925    recall@50 : 0.0052960311114    ndcg@10 : 0.001117450137097    ndcg@20 : 0.001491915084395    ndcg@50 : 0.002151310236241
+Sat 18 Feb 2023 18:22:56 INFO  epoch 69 training [time: 25.27s, train loss: -134423.4494]
+Sat 18 Feb 2023 18:22:58 INFO  epoch 69 evaluating [time: 2.30s, valid_score: 0.001499]
+Sat 18 Feb 2023 18:22:58 INFO  valid result: 
+recall@10 : 0.00166526899468    recall@20 : 0.002776290247213    recall@50 : 0.005357358038573    ndcg@10 : 0.001140030014965    ndcg@20 : 0.001498901794762    ndcg@50 : 0.002181665632471
+Sat 18 Feb 2023 18:22:58 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:23:23 INFO  epoch 70 training [time: 25.22s, train loss: -134424.6211]
+Sat 18 Feb 2023 18:23:26 INFO  epoch 70 evaluating [time: 2.30s, valid_score: 0.001504]
+Sat 18 Feb 2023 18:23:26 INFO  valid result: 
+recall@10 : 0.001690528094417    recall@20 : 0.002793678222173    recall@50 : 0.00531270404814    ndcg@10 : 0.001150003110438    ndcg@20 : 0.001503792767478    ndcg@50 : 0.002171760983422
+Sat 18 Feb 2023 18:23:26 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:23:51 INFO  epoch 71 training [time: 25.22s, train loss: -134424.4156]
+Sat 18 Feb 2023 18:23:53 INFO  epoch 71 evaluating [time: 2.23s, valid_score: 0.001497]
+Sat 18 Feb 2023 18:23:53 INFO  valid result: 
+recall@10 : 0.001686782010052    recall@20 : 0.002751914343079    recall@50 : 0.005300369189603    ndcg@10 : 0.00115283045273    ndcg@20 : 0.001497130567204    ndcg@50 : 0.002178335287758
+Sat 18 Feb 2023 18:24:18 INFO  epoch 72 training [time: 25.21s, train loss: -134426.2459]
+Sat 18 Feb 2023 18:24:21 INFO  epoch 72 evaluating [time: 2.19s, valid_score: 0.001490]
+Sat 18 Feb 2023 18:24:21 INFO  valid result: 
+recall@10 : 0.001702956462473    recall@20 : 0.002738814270516    recall@50 : 0.005339485981362    ndcg@10 : 0.001152122422489    ndcg@20 : 0.001489525912466    ndcg@50 : 0.00217774616809
+Sat 18 Feb 2023 18:24:46 INFO  epoch 73 training [time: 25.20s, train loss: -134426.7703]
+Sat 18 Feb 2023 18:24:48 INFO  epoch 73 evaluating [time: 2.17s, valid_score: 0.001491]
+Sat 18 Feb 2023 18:24:48 INFO  valid result: 
+recall@10 : 0.001683388094019    recall@20 : 0.002755660594916    recall@50 : 0.00533883303582    ndcg@10 : 0.001145833126966    ndcg@20 : 0.001491288284219    ndcg@50 : 0.002177026446081
+Sat 18 Feb 2023 18:25:13 INFO  epoch 74 training [time: 25.21s, train loss: -134426.2173]
+Sat 18 Feb 2023 18:25:16 INFO  epoch 74 evaluating [time: 2.29s, valid_score: 0.001499]
+Sat 18 Feb 2023 18:25:16 INFO  valid result: 
+recall@10 : 0.001697871810293    recall@20 : 0.002763402806327    recall@50 : 0.005348778403443    ndcg@10 : 0.00115538436883    ndcg@20 : 0.001498637366582    ndcg@50 : 0.002183002185869
+Sat 18 Feb 2023 18:25:41 INFO  epoch 75 training [time: 25.19s, train loss: -134428.1871]
+Sat 18 Feb 2023 18:25:43 INFO  epoch 75 evaluating [time: 2.25s, valid_score: 0.001493]
+Sat 18 Feb 2023 18:25:43 INFO  valid result: 
+recall@10 : 0.001692342835633    recall@20 : 0.002784153998224    recall@50 : 0.005351777863793    ndcg@10 : 0.001139453447981    ndcg@20 : 0.001493357263569    ndcg@50 : 0.002180250884258
+Sat 18 Feb 2023 18:26:08 INFO  epoch 76 training [time: 25.23s, train loss: -134427.9419]
+Sat 18 Feb 2023 18:26:10 INFO  epoch 76 evaluating [time: 2.20s, valid_score: 0.001508]
+Sat 18 Feb 2023 18:26:10 INFO  valid result: 
+recall@10 : 0.001650592509308    recall@20 : 0.002808593530202    recall@50 : 0.005334052505734    ndcg@10 : 0.001134026982695    ndcg@20 : 0.001507801375163    ndcg@50 : 0.002183346474925
+Sat 18 Feb 2023 18:26:11 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:26:36 INFO  epoch 77 training [time: 25.22s, train loss: -134429.4057]
+Sat 18 Feb 2023 18:26:38 INFO  epoch 77 evaluating [time: 2.32s, valid_score: 0.001524]
+Sat 18 Feb 2023 18:26:38 INFO  valid result: 
+recall@10 : 0.001694759163261    recall@20 : 0.002832436939558    recall@50 : 0.00539485522372    ndcg@10 : 0.001155052998945    ndcg@20 : 0.001523563575404    ndcg@50 : 0.002205282083836
+Sat 18 Feb 2023 18:26:38 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:27:04 INFO  epoch 78 training [time: 25.25s, train loss: -134429.5745]
+Sat 18 Feb 2023 18:27:06 INFO  epoch 78 evaluating [time: 2.26s, valid_score: 0.001515]
+Sat 18 Feb 2023 18:27:06 INFO  valid result: 
+recall@10 : 0.001693872147954    recall@20 : 0.002799401933768    recall@50 : 0.005321893700915    ndcg@10 : 0.001151961341749    ndcg@20 : 0.001514664680924    ndcg@50 : 0.002185455800783
+Sat 18 Feb 2023 18:27:31 INFO  epoch 79 training [time: 25.25s, train loss: -134430.6936]
+Sat 18 Feb 2023 18:27:33 INFO  epoch 79 evaluating [time: 2.24s, valid_score: 0.001521]
+Sat 18 Feb 2023 18:27:33 INFO  valid result: 
+recall@10 : 0.001719530134803    recall@20 : 0.002801944200261    recall@50 : 0.005340612744866    ndcg@10 : 0.001165734573602    ndcg@20 : 0.001520553602052    ndcg@50 : 0.002193117010668
+Sat 18 Feb 2023 18:27:59 INFO  epoch 80 training [time: 25.22s, train loss: -134431.1666]
+Sat 18 Feb 2023 18:28:01 INFO  epoch 80 evaluating [time: 2.39s, valid_score: 0.001513]
+Sat 18 Feb 2023 18:28:01 INFO  valid result: 
+recall@10 : 0.0016913536105    recall@20 : 0.002769818418085    recall@50 : 0.005294835754018    ndcg@10 : 0.00116157440962    ndcg@20 : 0.001512525610905    ndcg@50 : 0.002183081763531
+Sat 18 Feb 2023 18:28:26 INFO  epoch 81 training [time: 25.24s, train loss: -134433.1790]
+Sat 18 Feb 2023 18:28:30 INFO  epoch 81 evaluating [time: 3.46s, valid_score: 0.001523]
+Sat 18 Feb 2023 18:28:30 INFO  valid result: 
+recall@10 : 0.001683724486489    recall@20 : 0.002783683174741    recall@50 : 0.00531756284056    ndcg@10 : 0.001164534132933    ndcg@20 : 0.001523309020793    ndcg@50 : 0.002196122763586
+Sat 18 Feb 2023 18:28:55 INFO  epoch 82 training [time: 25.20s, train loss: -134431.8421]
+Sat 18 Feb 2023 18:28:58 INFO  epoch 82 evaluating [time: 3.10s, valid_score: 0.001520]
+Sat 18 Feb 2023 18:28:58 INFO  valid result: 
+recall@10 : 0.001701257491427    recall@20 : 0.002804090409304    recall@50 : 0.005365301399025    ndcg@10 : 0.001161962887289    ndcg@20 : 0.001520201742064    ndcg@50 : 0.0022001059439
+Sat 18 Feb 2023 18:29:23 INFO  epoch 83 training [time: 25.28s, train loss: -134433.2111]
+Sat 18 Feb 2023 18:29:26 INFO  epoch 83 evaluating [time: 2.25s, valid_score: 0.001515]
+Sat 18 Feb 2023 18:29:26 INFO  valid result: 
+recall@10 : 0.001663049766451    recall@20 : 0.002802930048212    recall@50 : 0.005397147522536    ndcg@10 : 0.001147755838729    ndcg@20 : 0.001514931488231    ndcg@50 : 0.002203414608077
+Sat 18 Feb 2023 18:29:51 INFO  epoch 84 training [time: 25.24s, train loss: -134433.9057]
+Sat 18 Feb 2023 18:29:53 INFO  epoch 84 evaluating [time: 2.20s, valid_score: 0.001525]
+Sat 18 Feb 2023 18:29:53 INFO  valid result: 
+recall@10 : 0.001671737049319    recall@20 : 0.002844892908336    recall@50 : 0.005369931477681    ndcg@10 : 0.001148445968693    ndcg@20 : 0.001525221060809    ndcg@50 : 0.002199186643115
+Sat 18 Feb 2023 18:29:53 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:30:18 INFO  epoch 85 training [time: 25.27s, train loss: -134434.6985]
+Sat 18 Feb 2023 18:30:21 INFO  epoch 85 evaluating [time: 2.19s, valid_score: 0.001522]
+Sat 18 Feb 2023 18:30:21 INFO  valid result: 
+recall@10 : 0.001696161233761    recall@20 : 0.002822888896328    recall@50 : 0.005376449056218    ndcg@10 : 0.001157226326737    ndcg@20 : 0.001521750934221    ndcg@50 : 0.00220335888058
+Sat 18 Feb 2023 18:30:46 INFO  epoch 86 training [time: 25.35s, train loss: -134434.4789]
+Sat 18 Feb 2023 18:30:48 INFO  epoch 86 evaluating [time: 2.36s, valid_score: 0.001535]
+Sat 18 Feb 2023 18:30:48 INFO  valid result: 
+recall@10 : 0.001719248645139    recall@20 : 0.002849163330711    recall@50 : 0.005333044463303    ndcg@10 : 0.001169521196517    ndcg@20 : 0.001534667015123    ndcg@50 : 0.002197215481901
+Sat 18 Feb 2023 18:30:49 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:31:14 INFO  epoch 87 training [time: 25.36s, train loss: -134436.4621]
+Sat 18 Feb 2023 18:31:16 INFO  epoch 87 evaluating [time: 2.23s, valid_score: 0.001533]
+Sat 18 Feb 2023 18:31:16 INFO  valid result: 
+recall@10 : 0.001694255534658    recall@20 : 0.002828850170819    recall@50 : 0.005401790986378    ndcg@10 : 0.001162139038288    ndcg@20 : 0.001532822267194    ndcg@50 : 0.002214756371107
+Sat 18 Feb 2023 18:31:42 INFO  epoch 88 training [time: 25.40s, train loss: -134436.0887]
+Sat 18 Feb 2023 18:31:44 INFO  epoch 88 evaluating [time: 2.32s, valid_score: 0.001526]
+Sat 18 Feb 2023 18:31:44 INFO  valid result: 
+recall@10 : 0.001700460519435    recall@20 : 0.002817325943887    recall@50 : 0.005362937155608    ndcg@10 : 0.001162157094755    ndcg@20 : 0.001525701144161    ndcg@50 : 0.00219840192117
+Sat 18 Feb 2023 18:32:09 INFO  epoch 89 training [time: 25.40s, train loss: -134438.6655]
+Sat 18 Feb 2023 18:32:12 INFO  epoch 89 evaluating [time: 2.27s, valid_score: 0.001539]
+Sat 18 Feb 2023 18:32:12 INFO  valid result: 
+recall@10 : 0.001710095517285    recall@20 : 0.002869354416117    recall@50 : 0.0053661036547    ndcg@10 : 0.001163435187862    ndcg@20 : 0.001539433022621    ndcg@50 : 0.002200465745937
+Sat 18 Feb 2023 18:32:12 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:32:37 INFO  epoch 90 training [time: 25.37s, train loss: -134437.0513]
+Sat 18 Feb 2023 18:32:40 INFO  epoch 90 evaluating [time: 2.33s, valid_score: 0.001541]
+Sat 18 Feb 2023 18:32:40 INFO  valid result: 
+recall@10 : 0.001707854702734    recall@20 : 0.002852920018102    recall@50 : 0.005335750199629    ndcg@10 : 0.001170992535812    ndcg@20 : 0.001541204175114    ndcg@50 : 0.002199881989478
+Sat 18 Feb 2023 18:32:40 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:33:05 INFO  epoch 91 training [time: 25.36s, train loss: -134438.8603]
+Sat 18 Feb 2023 18:33:07 INFO  epoch 91 evaluating [time: 2.29s, valid_score: 0.001526]
+Sat 18 Feb 2023 18:33:07 INFO  valid result: 
+recall@10 : 0.001701696497368    recall@20 : 0.002833943124665    recall@50 : 0.005329950241976    ndcg@10 : 0.001160420755688    ndcg@20 : 0.001526459753743    ndcg@50 : 0.002194456854404
+Sat 18 Feb 2023 18:33:33 INFO  epoch 92 training [time: 25.40s, train loss: -134438.9843]
+Sat 18 Feb 2023 18:33:35 INFO  epoch 92 evaluating [time: 2.26s, valid_score: 0.001540]
+Sat 18 Feb 2023 18:33:35 INFO  valid result: 
+recall@10 : 0.001716441593202    recall@20 : 0.002850074692322    recall@50 : 0.005308573168775    ndcg@10 : 0.001173158847585    ndcg@20 : 0.001540362554797    ndcg@50 : 0.002194130199265
+Sat 18 Feb 2023 18:34:00 INFO  epoch 93 training [time: 25.39s, train loss: -134437.9328]
+Sat 18 Feb 2023 18:34:03 INFO  epoch 93 evaluating [time: 2.26s, valid_score: 0.001547]
+Sat 18 Feb 2023 18:34:03 INFO  valid result: 
+recall@10 : 0.001697325166767    recall@20 : 0.002845118769323    recall@50 : 0.005385669520097    ndcg@10 : 0.001172653884418    ndcg@20 : 0.001547472025071    ndcg@50 : 0.002215858748919
+Sat 18 Feb 2023 18:34:03 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:34:28 INFO  epoch 94 training [time: 25.39s, train loss: -134440.4607]
+Sat 18 Feb 2023 18:34:31 INFO  epoch 94 evaluating [time: 2.28s, valid_score: 0.001542]
+Sat 18 Feb 2023 18:34:31 INFO  valid result: 
+recall@10 : 0.001716252252886    recall@20 : 0.002830125849737    recall@50 : 0.005358997125241    ndcg@10 : 0.001182215742974    ndcg@20 : 0.001541633514951    ndcg@50 : 0.002209168929426
+Sat 18 Feb 2023 18:34:56 INFO  epoch 95 training [time: 25.41s, train loss: -134438.9528]
+Sat 18 Feb 2023 18:34:58 INFO  epoch 95 evaluating [time: 2.27s, valid_score: 0.001540]
+Sat 18 Feb 2023 18:34:58 INFO  valid result: 
+recall@10 : 0.001718085157921    recall@20 : 0.002821497280314    recall@50 : 0.005290261162016    ndcg@10 : 0.001179459565591    ndcg@20 : 0.001540178913764    ndcg@50 : 0.002198305828969
+Sat 18 Feb 2023 18:35:24 INFO  epoch 96 training [time: 25.44s, train loss: -134440.8248]
+Sat 18 Feb 2023 18:35:26 INFO  epoch 96 evaluating [time: 2.28s, valid_score: 0.001558]
+Sat 18 Feb 2023 18:35:26 INFO  valid result: 
+recall@10 : 0.001703768652351    recall@20 : 0.002856837044211    recall@50 : 0.005330822710881    ndcg@10 : 0.001184813286137    ndcg@20 : 0.001557843915474    ndcg@50 : 0.002218692304308
+Sat 18 Feb 2023 18:35:26 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:35:52 INFO  epoch 97 training [time: 25.35s, train loss: -134442.1202]
+Sat 18 Feb 2023 18:35:54 INFO  epoch 97 evaluating [time: 2.28s, valid_score: 0.001557]
+Sat 18 Feb 2023 18:35:54 INFO  valid result: 
+recall@10 : 0.001740952296701    recall@20 : 0.002862907745283    recall@50 : 0.005352927156003    ndcg@10 : 0.001192320903911    ndcg@20 : 0.001557369603127    ndcg@50 : 0.002225036261211
+Sat 18 Feb 2023 18:36:19 INFO  epoch 98 training [time: 25.39s, train loss: -134442.9021]
+Sat 18 Feb 2023 18:36:22 INFO  epoch 98 evaluating [time: 2.27s, valid_score: 0.001558]
+Sat 18 Feb 2023 18:36:22 INFO  valid result: 
+recall@10 : 0.001740405104896    recall@20 : 0.002867316799469    recall@50 : 0.005305424880932    ndcg@10 : 0.001189100929107    ndcg@20 : 0.001558421717488    ndcg@50 : 0.002212874990805
+Sat 18 Feb 2023 18:36:22 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:36:47 INFO  epoch 99 training [time: 25.40s, train loss: -134443.1239]
+Sat 18 Feb 2023 18:36:49 INFO  epoch 99 evaluating [time: 2.28s, valid_score: 0.001564]
+Sat 18 Feb 2023 18:36:49 INFO  valid result: 
+recall@10 : 0.001751507489145    recall@20 : 0.002889395749407    recall@50 : 0.005347814591084    ndcg@10 : 0.00119401607524    ndcg@20 : 0.001564377667944    ndcg@50 : 0.002220126846463
+Sat 18 Feb 2023 18:36:50 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:37:15 INFO  epoch 100 training [time: 25.37s, train loss: -134444.1299]
+Sat 18 Feb 2023 18:37:17 INFO  epoch 100 evaluating [time: 2.29s, valid_score: 0.001557]
+Sat 18 Feb 2023 18:37:17 INFO  valid result: 
+recall@10 : 0.001727941077126    recall@20 : 0.002835626972602    recall@50 : 0.005370805590851    ndcg@10 : 0.001193278691214    ndcg@20 : 0.00155714962391    ndcg@50 : 0.002232037530103
+Sat 18 Feb 2023 18:37:43 INFO  epoch 101 training [time: 25.35s, train loss: -134444.1083]
+Sat 18 Feb 2023 18:37:45 INFO  epoch 101 evaluating [time: 2.27s, valid_score: 0.001558]
+Sat 18 Feb 2023 18:37:45 INFO  valid result: 
+recall@10 : 0.001747354938283    recall@20 : 0.002841014209598    recall@50 : 0.005397028962456    ndcg@10 : 0.001205465489544    ndcg@20 : 0.001558262333854    ndcg@50 : 0.00223678534039
+Sat 18 Feb 2023 18:38:10 INFO  epoch 102 training [time: 25.38s, train loss: -134443.2862]
+Sat 18 Feb 2023 18:38:13 INFO  epoch 102 evaluating [time: 2.27s, valid_score: 0.001563]
+Sat 18 Feb 2023 18:38:13 INFO  valid result: 
+recall@10 : 0.00173651732701    recall@20 : 0.002825403018029    recall@50 : 0.005359979474642    ndcg@10 : 0.00120948116835    ndcg@20 : 0.001563063582424    ndcg@50 : 0.002240056849133
+Sat 18 Feb 2023 18:38:38 INFO  epoch 103 training [time: 25.40s, train loss: -134444.7374]
+Sat 18 Feb 2023 18:38:40 INFO  epoch 103 evaluating [time: 2.27s, valid_score: 0.001561]
+Sat 18 Feb 2023 18:38:40 INFO  valid result: 
+recall@10 : 0.001745175196166    recall@20 : 0.002838999671934    recall@50 : 0.005330483085754    ndcg@10 : 0.001207586844222    ndcg@20 : 0.001560841732288    ndcg@50 : 0.002229419483441
+Sat 18 Feb 2023 18:39:06 INFO  epoch 104 training [time: 25.34s, train loss: -134444.2480]
+Sat 18 Feb 2023 18:39:08 INFO  epoch 104 evaluating [time: 2.27s, valid_score: 0.001576]
+Sat 18 Feb 2023 18:39:08 INFO  valid result: 
+recall@10 : 0.001737656831923    recall@20 : 0.002859607918532    recall@50 : 0.005366792461625    ndcg@10 : 0.001212441385711    ndcg@20 : 0.001575992822634    ndcg@50 : 0.002245910996943
+Sat 18 Feb 2023 18:39:08 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:39:33 INFO  epoch 105 training [time: 25.36s, train loss: -134446.3111]
+Sat 18 Feb 2023 18:39:36 INFO  epoch 105 evaluating [time: 2.27s, valid_score: 0.001588]
+Sat 18 Feb 2023 18:39:36 INFO  valid result: 
+recall@10 : 0.001781752474557    recall@20 : 0.002858907342561    recall@50 : 0.005409408276306    ndcg@10 : 0.00124235162683    ndcg@20 : 0.001587866310403    ndcg@50 : 0.002269887049652
+Sat 18 Feb 2023 18:39:36 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:40:01 INFO  epoch 106 training [time: 25.39s, train loss: -134445.3248]
+Sat 18 Feb 2023 18:40:04 INFO  epoch 106 evaluating [time: 2.26s, valid_score: 0.001582]
+Sat 18 Feb 2023 18:40:04 INFO  valid result: 
+recall@10 : 0.001725103082881    recall@20 : 0.002860780661144    recall@50 : 0.005363003849552    ndcg@10 : 0.001217637023557    ndcg@20 : 0.001582386538116    ndcg@50 : 0.002250720155031
+Sat 18 Feb 2023 18:40:29 INFO  epoch 107 training [time: 25.36s, train loss: -134446.6211]
+Sat 18 Feb 2023 18:40:31 INFO  epoch 107 evaluating [time: 2.27s, valid_score: 0.001586]
+Sat 18 Feb 2023 18:40:31 INFO  valid result: 
+recall@10 : 0.001768136252821    recall@20 : 0.002869338734118    recall@50 : 0.005355733755993    ndcg@10 : 0.001226302494014    ndcg@20 : 0.001585648883919    ndcg@50 : 0.002249777848069
+Sat 18 Feb 2023 18:40:57 INFO  epoch 108 training [time: 25.36s, train loss: -134447.8136]
+Sat 18 Feb 2023 18:40:59 INFO  epoch 108 evaluating [time: 2.26s, valid_score: 0.001589]
+Sat 18 Feb 2023 18:40:59 INFO  valid result: 
+recall@10 : 0.001780701367498    recall@20 : 0.002891923299746    recall@50 : 0.005386785625781    ndcg@10 : 0.001223984377742    ndcg@20 : 0.001588916504546    ndcg@50 : 0.002253014592834
+Sat 18 Feb 2023 18:40:59 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:41:24 INFO  epoch 109 training [time: 25.39s, train loss: -134447.9783]
+Sat 18 Feb 2023 18:41:27 INFO  epoch 109 evaluating [time: 2.38s, valid_score: 0.001590]
+Sat 18 Feb 2023 18:41:27 INFO  valid result: 
+recall@10 : 0.00178737929571    recall@20 : 0.002882154854328    recall@50 : 0.005448165509861    ndcg@10 : 0.001232226245006    ndcg@20 : 0.001590323819906    ndcg@50 : 0.002273059272093
+Sat 18 Feb 2023 18:41:27 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:41:52 INFO  epoch 110 training [time: 25.35s, train loss: -134444.9092]
+Sat 18 Feb 2023 18:41:56 INFO  epoch 110 evaluating [time: 3.35s, valid_score: 0.001601]
+Sat 18 Feb 2023 18:41:56 INFO  valid result: 
+recall@10 : 0.0017855997238    recall@20 : 0.002910035963073    recall@50 : 0.005488815939639    ndcg@10 : 0.001235183975974    ndcg@20 : 0.001601348477512    ndcg@50 : 0.002284106542096
+Sat 18 Feb 2023 18:41:56 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:42:21 INFO  epoch 111 training [time: 25.36s, train loss: -134448.1478]
+Sat 18 Feb 2023 18:42:26 INFO  epoch 111 evaluating [time: 4.27s, valid_score: 0.001592]
+Sat 18 Feb 2023 18:42:26 INFO  valid result: 
+recall@10 : 0.001776519878251    recall@20 : 0.002894131947164    recall@50 : 0.005455602462212    ndcg@10 : 0.001229725745496    ndcg@20 : 0.001592121951871    ndcg@50 : 0.002274531261547
+Sat 18 Feb 2023 18:42:51 INFO  epoch 112 training [time: 25.31s, train loss: -134448.5497]
+Sat 18 Feb 2023 18:42:55 INFO  epoch 112 evaluating [time: 3.73s, valid_score: 0.001575]
+Sat 18 Feb 2023 18:42:55 INFO  valid result: 
+recall@10 : 0.001746152524177    recall@20 : 0.002867654074916    recall@50 : 0.005435893727359    ndcg@10 : 0.001210037106701    ndcg@20 : 0.001575336993265    ndcg@50 : 0.002257939458025
+Sat 18 Feb 2023 18:43:20 INFO  epoch 113 training [time: 25.35s, train loss: -134447.8524]
+Sat 18 Feb 2023 18:43:22 INFO  epoch 113 evaluating [time: 2.44s, valid_score: 0.001594]
+Sat 18 Feb 2023 18:43:22 INFO  valid result: 
+recall@10 : 0.00175490358351    recall@20 : 0.00292681677137    recall@50 : 0.005498124582776    ndcg@10 : 0.00121385833925    ndcg@20 : 0.001594022454247    ndcg@50 : 0.002276857557874
+Sat 18 Feb 2023 18:43:48 INFO  epoch 114 training [time: 25.36s, train loss: -134450.2272]
+Sat 18 Feb 2023 18:43:50 INFO  epoch 114 evaluating [time: 2.18s, valid_score: 0.001599]
+Sat 18 Feb 2023 18:43:50 INFO  valid result: 
+recall@10 : 0.001745597348526    recall@20 : 0.002911218022388    recall@50 : 0.005560358839596    ndcg@10 : 0.001222530481607    ndcg@20 : 0.001598982399964    ndcg@50 : 0.002301447021197
+Sat 18 Feb 2023 18:44:15 INFO  epoch 115 training [time: 25.38s, train loss: -134450.3246]
+Sat 18 Feb 2023 18:44:18 INFO  epoch 115 evaluating [time: 2.18s, valid_score: 0.001604]
+Sat 18 Feb 2023 18:44:18 INFO  valid result: 
+recall@10 : 0.00173543124977    recall@20 : 0.002915858920334    recall@50 : 0.005528514053163    ndcg@10 : 0.001220709259622    ndcg@20 : 0.001603641147667    ndcg@50 : 0.002296497520459
+Sat 18 Feb 2023 18:44:18 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:44:43 INFO  epoch 116 training [time: 25.34s, train loss: -134451.1000]
+Sat 18 Feb 2023 18:44:45 INFO  epoch 116 evaluating [time: 2.19s, valid_score: 0.001606]
+Sat 18 Feb 2023 18:44:45 INFO  valid result: 
+recall@10 : 0.001742640638664    recall@20 : 0.002959327353657    recall@50 : 0.005511002847362    ndcg@10 : 0.001211284963586    ndcg@20 : 0.001605925977575    ndcg@50 : 0.002283405807476
+Sat 18 Feb 2023 18:44:45 INFO  Saving current: saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:45:11 INFO  epoch 117 training [time: 25.33s, train loss: -134450.9311]
+Sat 18 Feb 2023 18:45:13 INFO  epoch 117 evaluating [time: 2.18s, valid_score: 0.001594]
+Sat 18 Feb 2023 18:45:13 INFO  valid result: 
+recall@10 : 0.001729164721114    recall@20 : 0.002935002614654    recall@50 : 0.005541917288153    ndcg@10 : 0.001202766811145    ndcg@20 : 0.001594056163992    ndcg@50 : 0.002285375448006
+Sat 18 Feb 2023 18:45:38 INFO  epoch 118 training [time: 25.33s, train loss: -134450.8198]
+Sat 18 Feb 2023 18:45:40 INFO  epoch 118 evaluating [time: 2.18s, valid_score: 0.001596]
+Sat 18 Feb 2023 18:45:40 INFO  valid result: 
+recall@10 : 0.001746066589885    recall@20 : 0.002930101288957    recall@50 : 0.005546314817904    ndcg@10 : 0.001209929254536    ndcg@20 : 0.001595856852948    ndcg@50 : 0.002288365821751
+Sat 18 Feb 2023 18:46:06 INFO  epoch 119 training [time: 25.34s, train loss: -134450.8024]
+Sat 18 Feb 2023 18:46:08 INFO  epoch 119 evaluating [time: 2.18s, valid_score: 0.001603]
+Sat 18 Feb 2023 18:46:08 INFO  valid result: 
+recall@10 : 0.001733875454275    recall@20 : 0.002948468538402    recall@50 : 0.00554298488914    ndcg@10 : 0.001210998837299    ndcg@20 : 0.001603205580106    ndcg@50 : 0.00228813275504
+Sat 18 Feb 2023 18:46:33 INFO  epoch 120 training [time: 25.33s, train loss: -134451.8005]
+Sat 18 Feb 2023 18:46:36 INFO  epoch 120 evaluating [time: 2.19s, valid_score: 0.001602]
+Sat 18 Feb 2023 18:46:36 INFO  valid result: 
+recall@10 : 0.001760205658757    recall@20 : 0.00294345215417    recall@50 : 0.00554482033825    ndcg@10 : 0.001216915418398    ndcg@20 : 0.001602256328201    ndcg@50 : 0.002292089973609
+Sat 18 Feb 2023 18:47:01 INFO  epoch 121 training [time: 25.35s, train loss: -134451.9702]
+Sat 18 Feb 2023 18:47:03 INFO  epoch 121 evaluating [time: 2.20s, valid_score: 0.001598]
+Sat 18 Feb 2023 18:47:03 INFO  valid result: 
+recall@10 : 0.001709373439549    recall@20 : 0.002928935387969    recall@50 : 0.005491802164703    ndcg@10 : 0.001200226374595    ndcg@20 : 0.001597690620873    ndcg@50 : 0.002278741236751
+Sat 18 Feb 2023 18:47:28 INFO  epoch 122 training [time: 25.37s, train loss: -134452.1916]
+Sat 18 Feb 2023 18:47:31 INFO  epoch 122 evaluating [time: 2.18s, valid_score: 0.001590]
+Sat 18 Feb 2023 18:47:31 INFO  valid result: 
+recall@10 : 0.001744775830202    recall@20 : 0.002950729813342    recall@50 : 0.005473638700389    ndcg@10 : 0.001200958611747    ndcg@20 : 0.001589849053555    ndcg@50 : 0.002265258435887
+Sat 18 Feb 2023 18:47:56 INFO  epoch 123 training [time: 25.36s, train loss: -134453.6390]
+Sat 18 Feb 2023 18:47:58 INFO  epoch 123 evaluating [time: 2.18s, valid_score: 0.001599]
+Sat 18 Feb 2023 18:47:58 INFO  valid result: 
+recall@10 : 0.001756617851379    recall@20 : 0.002955511249452    recall@50 : 0.005513355632526    ndcg@10 : 0.001212623746968    ndcg@20 : 0.00159868316215    ndcg@50 : 0.002281889567131
+Sat 18 Feb 2023 18:48:24 INFO  epoch 124 training [time: 25.34s, train loss: -134452.6928]
+Sat 18 Feb 2023 18:48:26 INFO  epoch 124 evaluating [time: 2.22s, valid_score: 0.001598]
+Sat 18 Feb 2023 18:48:26 INFO  valid result: 
+recall@10 : 0.001727784992331    recall@20 : 0.002957593798277    recall@50 : 0.00546013452463    ndcg@10 : 0.00120040489754    ndcg@20 : 0.001597565217909    ndcg@50 : 0.002269154789755
+Sat 18 Feb 2023 18:48:51 INFO  epoch 125 training [time: 25.33s, train loss: -134453.3860]
+Sat 18 Feb 2023 18:48:53 INFO  epoch 125 evaluating [time: 2.18s, valid_score: 0.001592]
+Sat 18 Feb 2023 18:48:53 INFO  valid result: 
+recall@10 : 0.001742840420596    recall@20 : 0.002928009629008    recall@50 : 0.005460561339388    ndcg@10 : 0.001209183186405    ndcg@20 : 0.001591789772056    ndcg@50 : 0.00227149742569
+Sat 18 Feb 2023 18:49:19 INFO  epoch 126 training [time: 25.32s, train loss: -134452.3438]
+Sat 18 Feb 2023 18:49:21 INFO  epoch 126 evaluating [time: 2.18s, valid_score: 0.001592]
+Sat 18 Feb 2023 18:49:21 INFO  valid result: 
+recall@10 : 0.001733133008861    recall@20 : 0.002925795655183    recall@50 : 0.005450562562277    ndcg@10 : 0.001203800627985    ndcg@20 : 0.001592301495795    ndcg@50 : 0.002267015965751
+Sat 18 Feb 2023 18:49:46 INFO  epoch 127 training [time: 25.33s, train loss: -134455.3644]
+Sat 18 Feb 2023 18:49:48 INFO  epoch 127 evaluating [time: 2.19s, valid_score: 0.001600]
+Sat 18 Feb 2023 18:49:48 INFO  valid result: 
+recall@10 : 0.001761064551512    recall@20 : 0.002927225492673    recall@50 : 0.005551013687698    ndcg@10 : 0.001219957403318    ndcg@20 : 0.001600444569985    ndcg@50 : 0.002294314331165
+Sat 18 Feb 2023 18:49:48 INFO  Finished training, best eval result in epoch 116
+Sat 18 Feb 2023 18:49:48 INFO  Total (train & valid) time: 3555.40s
+Sat 18 Feb 2023 18:49:48 INFO  Loading model structure and parameters from saved/UCTRL-Gowalla2-Feb-18-2023_17-50-33.pth
+Sat 18 Feb 2023 18:49:50 INFO  best valid : OrderedDict([('recall@10', 0.001742640638664), ('recall@20', 0.002959327353657), ('recall@50', 0.005511002847362), ('ndcg@10', 0.001211284963586), ('ndcg@20', 0.001605925977575), ('ndcg@50', 0.002283405807476)])
+Sat 18 Feb 2023 18:49:50 INFO  test result: OrderedDict([('recall@10', 0.076997141256989), ('recall@20', 0.119449686045125), ('recall@50', 0.20147468506178), ('ndcg@10', 0.056764167363836), ('ndcg@20', 0.070946273707036), ('ndcg@50', 0.093822147070911)])

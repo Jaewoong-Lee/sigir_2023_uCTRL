@@ -1,0 +1,6 @@
+DirectAU
+python run_hyper.py --model=DirectAU --dataset=Yelp --encoder=MF --n_layers=1 --params_file=search_hyper/directau.hyper --output_file=output_files/Yelp/directau_mf --gpu_id=1
+
+
+DirectAU
+python run_hyper.py --model=DirectAU --dataset=Yelp --encoder=LightGCN --n_layers=1 --params_file=search_hyper/directau.hyper --output_file=output_files/Yelp/directau_gcn --gpu_id=1

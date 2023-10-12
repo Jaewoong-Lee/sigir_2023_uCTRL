@@ -1,0 +1,3 @@
+gamma1 choice [0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1]
+gamma2 choice [1]
+weight_decay choice [1e-6, 1e-8, 0]

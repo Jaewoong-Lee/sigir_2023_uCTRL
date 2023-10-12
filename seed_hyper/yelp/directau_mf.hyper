@@ -1,0 +1,6 @@
+train_batch_size choice [256]
+embedding_size choice [64]
+learning_rate choice [1e-3] 
+weight_decay choice [0]
+gamma choice [1]
+seed choice [0, 1, 2, 3, 4]

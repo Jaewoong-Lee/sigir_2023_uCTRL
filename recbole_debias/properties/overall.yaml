@@ -1,0 +1,46 @@
+# general
+gpu_id: 0
+use_gpu: True
+seed: 0
+state: INFO
+reproducibility: True
+data_path: 'dataset/'
+checkpoint_dir: 'saved'
+show_progress: False
+save_dataset: False
+dataset_save_path: ~
+save_dataloaders: False
+dataloaders_save_path: ~
+log_wandb: False
+wandb_project: 'recbole_debias'
+
+# training settings
+epochs: 500
+train_batch_size: 1024
+learner: adam
+learning_rate: 0.001
+neg_sampling:
+  uniform: 20
+#  popularity: 2
+eval_step: 1
+stopping_step: 10
+clip_grad_norm: ~
+# clip_grad_norm:  {'max_norm': 5, 'norm_type': 2}
+weight_decay: 1e-6
+loss_decimal_place: 4
+require_pow: False
+eval: unbiased
+
+# evaluation settings
+eval_args: 
+  split: {'RS':[0.8,0.1,0.1]}
+  group_by: user
+  order: RO
+  mode: full
+repeatable: False
+metrics: ["Recall", "NDCG"]
+topk: [10, 20, 50]
+valid_metric: NDCG@20
+valid_metric_bigger: True # 크면 좋은지 작으면 좋은지
+eval_batch_size: 1048576
+metric_decimal_place: 15

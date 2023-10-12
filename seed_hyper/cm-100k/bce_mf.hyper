@@ -1,0 +1,6 @@
+train_batch_size choice [1024]
+embedding_size choice [64]
+learning_rate choice [5e-3] 
+weight_decay choice [0]
+neg_sampling choice ["{'uniform':15}"]
+seed choice [0, 1, 2, 3, 4]

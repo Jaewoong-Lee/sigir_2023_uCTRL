@@ -1,0 +1,257 @@
+Mon 20 Feb 2023 00:55:13 INFO  
+General Hyper Parameters:
+gpu_id = 1
+use_gpu = True
+seed = 0
+state = INFO
+reproducibility = True
+data_path = dataset/ml-1m
+checkpoint_dir = saved
+show_progress = False
+save_dataset = False
+dataset_save_path = None
+save_dataloaders = True
+dataloaders_save_path = None
+log_wandb = False
+
+Training Hyper Parameters:
+epochs = 500
+train_batch_size = 1024
+learner = adam
+learning_rate = 0.001
+neg_sampling = None
+eval_step = 1
+stopping_step = 10
+clip_grad_norm = None
+weight_decay = 0
+loss_decimal_place = 4
+
+Evaluation Hyper Parameters:
+eval_args = {'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}
+repeatable = False
+metrics = ['Recall', 'NDCG']
+topk = [10, 20, 50]
+valid_metric = NDCG@20
+valid_metric_bigger = True
+eval_batch_size = 1048576
+metric_decimal_place = 15
+
+Dataset Hyper Parameters:
+field_separator = 	
+seq_separator =  
+USER_ID_FIELD = user_id
+ITEM_ID_FIELD = item_id
+RATING_FIELD = rating
+TIME_FIELD = timestamp
+seq_len = None
+LABEL_FIELD = label
+threshold = None
+NEG_PREFIX = neg_
+load_col = {'inter': ['user_id', 'item_id', 'timestamp']}
+unload_col = None
+unused_col = None
+additional_feat_suffix = None
+rm_dup_inter = last
+val_interval = None
+filter_inter_by_user_or_item = True
+user_inter_num_interval = [5,inf)
+item_inter_num_interval = [5,inf)
+alias_of_user_id = None
+alias_of_item_id = None
+alias_of_entity_id = None
+alias_of_relation_id = None
+preload_weight = None
+normalize_field = None
+normalize_all = True
+ITEM_LIST_LENGTH_FIELD = item_length
+LIST_SUFFIX = _list
+MAX_ITEM_LIST_LENGTH = 50
+POSITION_FIELD = position_id
+HEAD_ENTITY_ID_FIELD = head_id
+TAIL_ENTITY_ID_FIELD = tail_id
+RELATION_ID_FIELD = relation_id
+ENTITY_ID_FIELD = entity_id
+benchmark_filename = ['p1', 'p2', 'p3']
+
+Other Hyper Parameters: 
+save_pos_pairs = True
+pos_pairs_save_path = None
+wandb_project = recbole
+require_pow = False
+embedding_size = 64
+encoder = LightGCN
+n_layers = 2
+gamma = 1
+MODEL_TYPE = ModelType.GENERAL
+eval = unbiased
+MODEL_INPUT_TYPE = InputType.POINTWISE
+eval_type = EvaluatorType.RANKING
+device = cuda
+train_neg_sample_args = {'strategy': 'none', 'in_batch': False}
+eval_neg_sample_args = {'strategy': 'full', 'distribution': 'uniform'}
+
+
+Mon 20 Feb 2023 00:55:16 INFO  ml-1m
+The number of users: 6041
+Average actions of users: 165.5975165562914
+The number of items: 3707
+Average actions of items: 269.88909875876953
+The number of inters: 1000209
+The sparsity of the dataset: 95.53358229599758%
+Remain Fields: ['user_id', 'item_id']
+Mon 20 Feb 2023 00:55:18 INFO  [Training]: train_batch_size = [1024] negative sampling: [None]
+Mon 20 Feb 2023 00:55:18 INFO  [Evaluation]: eval_batch_size = [1048576] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Mon 20 Feb 2023 00:55:23 INFO  DirectAU(
+  (encoder): LGCNEncoder(
+    (user_embedding): Embedding(6041, 64)
+    (item_embedding): Embedding(3707, 64)
+  )
+)
+Trainable parameters: 623872
+Mon 20 Feb 2023 00:56:33 INFO  epoch 0 training [time: 66.88s, train loss: -1053.6909]
+Mon 20 Feb 2023 00:56:34 INFO  epoch 0 evaluating [time: 1.34s, valid_score: 0.000035]
+Mon 20 Feb 2023 00:56:34 INFO  valid result: 
+recall@10 : 1.7903268806e-05    recall@20 : 3.175841413e-05    recall@50 : 6.3350292699e-05    ndcg@10 : 3.4085072759e-05    ndcg@20 : 3.4832899162e-05    ndcg@50 : 4.3251463003e-05
+Mon 20 Feb 2023 00:56:34 INFO  Saving current: saved/DirectAU-ml-1m-Feb-20-2023_00-55-26.pth
+Mon 20 Feb 2023 00:57:41 INFO  epoch 1 training [time: 67.33s, train loss: -1141.6195]
+Mon 20 Feb 2023 00:57:42 INFO  epoch 1 evaluating [time: 0.52s, valid_score: 0.000042]
+Mon 20 Feb 2023 00:57:42 INFO  valid result: 
+recall@10 : 2.2990978447e-05    recall@20 : 3.7618240985e-05    recall@50 : 7.7092819652e-05    ndcg@10 : 4.1992676604e-05    ndcg@20 : 4.1930299006e-05    ndcg@50 : 5.2797576067e-05
+Mon 20 Feb 2023 00:57:42 INFO  Saving current: saved/DirectAU-ml-1m-Feb-20-2023_00-55-26.pth
+Mon 20 Feb 2023 00:58:50 INFO  epoch 2 training [time: 67.72s, train loss: -1158.4838]
+Mon 20 Feb 2023 00:58:50 INFO  epoch 2 evaluating [time: 0.46s, valid_score: 0.000045]
+Mon 20 Feb 2023 00:58:50 INFO  valid result: 
+recall@10 : 2.376425391e-05    recall@20 : 4.0357852139e-05    recall@50 : 7.856461227e-05    ndcg@10 : 4.3222057298e-05    ndcg@20 : 4.4559627697e-05    ndcg@50 : 5.4591509478e-05
+Mon 20 Feb 2023 00:58:50 INFO  Saving current: saved/DirectAU-ml-1m-Feb-20-2023_00-55-26.pth
+Mon 20 Feb 2023 00:59:58 INFO  epoch 3 training [time: 68.01s, train loss: -1166.3858]
+Mon 20 Feb 2023 00:59:58 INFO  epoch 3 evaluating [time: 0.46s, valid_score: 0.000047]
+Mon 20 Feb 2023 00:59:58 INFO  valid result: 
+recall@10 : 2.5347398587e-05    recall@20 : 4.3163801835e-05    recall@50 : 8.2229165079e-05    ndcg@10 : 4.643955424e-05    ndcg@20 : 4.7097114533e-05    ndcg@50 : 5.7203608924e-05
+Mon 20 Feb 2023 00:59:59 INFO  Saving current: saved/DirectAU-ml-1m-Feb-20-2023_00-55-26.pth
+Mon 20 Feb 2023 01:01:07 INFO  epoch 4 training [time: 68.19s, train loss: -1171.0989]
+Mon 20 Feb 2023 01:01:07 INFO  epoch 4 evaluating [time: 0.46s, valid_score: 0.000048]
+Mon 20 Feb 2023 01:01:07 INFO  valid result: 
+recall@10 : 2.516103945e-05    recall@20 : 4.6707088085e-05    recall@50 : 8.4413420813e-05    ndcg@10 : 4.4276839132e-05    ndcg@20 : 4.8356156713e-05    ndcg@50 : 5.8269260533e-05
+Mon 20 Feb 2023 01:01:07 INFO  Saving current: saved/DirectAU-ml-1m-Feb-20-2023_00-55-26.pth
+Mon 20 Feb 2023 01:02:16 INFO  epoch 5 training [time: 68.51s, train loss: -1174.4045]
+Mon 20 Feb 2023 01:02:16 INFO  epoch 5 evaluating [time: 0.46s, valid_score: 0.000050]
+Mon 20 Feb 2023 01:02:16 INFO  valid result: 
+recall@10 : 2.5375663098e-05    recall@20 : 4.720675036e-05    recall@50 : 8.6657456075e-05    ndcg@10 : 4.653252563e-05    ndcg@20 : 4.9985732722e-05    ndcg@50 : 5.9475260009e-05
+Mon 20 Feb 2023 01:02:16 INFO  Saving current: saved/DirectAU-ml-1m-Feb-20-2023_00-55-26.pth
+Mon 20 Feb 2023 01:03:25 INFO  epoch 6 training [time: 68.52s, train loss: -1176.9120]
+Mon 20 Feb 2023 01:03:25 INFO  epoch 6 evaluating [time: 0.46s, valid_score: 0.000051]
+Mon 20 Feb 2023 01:03:25 INFO  valid result: 
+recall@10 : 2.6341420945e-05    recall@20 : 4.9248640221e-05    recall@50 : 8.7291045031e-05    ndcg@10 : 4.7628682912e-05    ndcg@20 : 5.1092583829e-05    ndcg@50 : 6.009970075e-05
+Mon 20 Feb 2023 01:03:25 INFO  Saving current: saved/DirectAU-ml-1m-Feb-20-2023_00-55-26.pth
+Mon 20 Feb 2023 01:04:34 INFO  epoch 7 training [time: 68.54s, train loss: -1178.9725]
+Mon 20 Feb 2023 01:04:34 INFO  epoch 7 evaluating [time: 0.46s, valid_score: 0.000050]
+Mon 20 Feb 2023 01:04:34 INFO  valid result: 
+recall@10 : 2.6273353099e-05    recall@20 : 4.8429668174e-05    recall@50 : 8.8876939935e-05    ndcg@10 : 4.7377513725e-05    ndcg@20 : 5.0262391382e-05    ndcg@50 : 6.105561665e-05
+Mon 20 Feb 2023 01:05:43 INFO  epoch 8 training [time: 68.59s, train loss: -1180.6402]
+Mon 20 Feb 2023 01:05:43 INFO  epoch 8 evaluating [time: 0.46s, valid_score: 0.000051]
+Mon 20 Feb 2023 01:05:43 INFO  valid result: 
+recall@10 : 2.5999570691e-05    recall@20 : 4.9324693691e-05    recall@50 : 8.7732481181e-05    ndcg@10 : 4.7438897933e-05    ndcg@20 : 5.1202545367e-05    ndcg@50 : 6.0647688681e-05
+Mon 20 Feb 2023 01:05:43 INFO  Saving current: saved/DirectAU-ml-1m-Feb-20-2023_00-55-26.pth
+Mon 20 Feb 2023 01:06:52 INFO  epoch 9 training [time: 68.56s, train loss: -1182.0674]
+Mon 20 Feb 2023 01:06:52 INFO  epoch 9 evaluating [time: 0.46s, valid_score: 0.000052]
+Mon 20 Feb 2023 01:06:52 INFO  valid result: 
+recall@10 : 2.70123868e-05    recall@20 : 5.2948947039e-05    recall@50 : 8.8286592574e-05    ndcg@10 : 4.7545967494e-05    ndcg@20 : 5.2443819042e-05    ndcg@50 : 6.1073660689e-05
+Mon 20 Feb 2023 01:06:52 INFO  Saving current: saved/DirectAU-ml-1m-Feb-20-2023_00-55-26.pth
+Mon 20 Feb 2023 01:08:01 INFO  epoch 10 training [time: 68.60s, train loss: -1183.3698]
+Mon 20 Feb 2023 01:08:01 INFO  epoch 10 evaluating [time: 0.45s, valid_score: 0.000053]
+Mon 20 Feb 2023 01:08:01 INFO  valid result: 
+recall@10 : 2.6145161705e-05    recall@20 : 5.266963515e-05    recall@50 : 8.9395415922e-05    ndcg@10 : 4.679711696e-05    ndcg@20 : 5.2563536693e-05    ndcg@50 : 6.1434788382e-05
+Mon 20 Feb 2023 01:08:01 INFO  Saving current: saved/DirectAU-ml-1m-Feb-20-2023_00-55-26.pth
+Mon 20 Feb 2023 01:09:10 INFO  epoch 11 training [time: 68.65s, train loss: -1184.5653]
+Mon 20 Feb 2023 01:09:10 INFO  epoch 11 evaluating [time: 0.44s, valid_score: 0.000053]
+Mon 20 Feb 2023 01:09:10 INFO  valid result: 
+recall@10 : 2.7265251149e-05    recall@20 : 5.0806787571e-05    recall@50 : 8.8811057228e-05    ndcg@10 : 4.994133419e-05    ndcg@20 : 5.3048488373e-05    ndcg@50 : 6.1851972295e-05
+Mon 20 Feb 2023 01:09:11 INFO  Saving current: saved/DirectAU-ml-1m-Feb-20-2023_00-55-26.pth
+Mon 20 Feb 2023 01:10:19 INFO  epoch 12 training [time: 68.75s, train loss: -1185.5236]
+Mon 20 Feb 2023 01:10:20 INFO  epoch 12 evaluating [time: 0.46s, valid_score: 0.000053]
+Mon 20 Feb 2023 01:10:20 INFO  valid result: 
+recall@10 : 2.7364812327e-05    recall@20 : 5.1719919237e-05    recall@50 : 9.4978908473e-05    ndcg@10 : 4.9743017721e-05    ndcg@20 : 5.2914350766e-05    ndcg@50 : 6.583846923e-05
+Mon 20 Feb 2023 01:11:28 INFO  epoch 13 training [time: 68.71s, train loss: -1186.3984]
+Mon 20 Feb 2023 01:11:29 INFO  epoch 13 evaluating [time: 0.45s, valid_score: 0.000052]
+Mon 20 Feb 2023 01:11:29 INFO  valid result: 
+recall@10 : 2.7366354919e-05    recall@20 : 5.1330579816e-05    recall@50 : 9.1113981903e-05    ndcg@10 : 4.9514088819e-05    ndcg@20 : 5.1537157861e-05    ndcg@50 : 6.3012818624e-05
+Mon 20 Feb 2023 01:12:38 INFO  epoch 14 training [time: 68.71s, train loss: -1187.2926]
+Mon 20 Feb 2023 01:12:38 INFO  epoch 14 evaluating [time: 0.46s, valid_score: 0.000053]
+Mon 20 Feb 2023 01:12:38 INFO  valid result: 
+recall@10 : 2.6752882418e-05    recall@20 : 5.3742976851e-05    recall@50 : 9.1915860291e-05    ndcg@10 : 4.7223264614e-05    ndcg@20 : 5.2632121263e-05    ndcg@50 : 6.3219023314e-05
+Mon 20 Feb 2023 01:13:47 INFO  epoch 15 training [time: 68.69s, train loss: -1187.9135]
+Mon 20 Feb 2023 01:13:47 INFO  epoch 15 evaluating [time: 0.43s, valid_score: 0.000053]
+Mon 20 Feb 2023 01:13:47 INFO  valid result: 
+recall@10 : 2.6068997085e-05    recall@20 : 5.2980566998e-05    recall@50 : 9.1909512643e-05    ndcg@10 : 4.7649253156e-05    ndcg@20 : 5.2508628159e-05    ndcg@50 : 6.352853149e-05
+Mon 20 Feb 2023 01:14:56 INFO  epoch 16 training [time: 68.67s, train loss: -1188.6445]
+Mon 20 Feb 2023 01:14:56 INFO  epoch 16 evaluating [time: 0.43s, valid_score: 0.000053]
+Mon 20 Feb 2023 01:14:56 INFO  valid result: 
+recall@10 : 2.5714736459e-05    recall@20 : 5.3395603378e-05    recall@50 : 9.1770804951e-05    ndcg@10 : 4.744099178e-05    ndcg@20 : 5.263429975e-05    ndcg@50 : 6.3494861497e-05
+Mon 20 Feb 2023 01:16:05 INFO  epoch 17 training [time: 68.70s, train loss: -1189.2622]
+Mon 20 Feb 2023 01:16:05 INFO  epoch 17 evaluating [time: 0.44s, valid_score: 0.000053]
+Mon 20 Feb 2023 01:16:05 INFO  valid result: 
+recall@10 : 2.7559317522e-05    recall@20 : 5.3864710819e-05    recall@50 : 9.2065988742e-05    ndcg@10 : 4.8648474958e-05    ndcg@20 : 5.3330509457e-05    ndcg@50 : 6.3493515372e-05
+Mon 20 Feb 2023 01:16:05 INFO  Saving current: saved/DirectAU-ml-1m-Feb-20-2023_00-55-26.pth
+Mon 20 Feb 2023 01:17:14 INFO  epoch 18 training [time: 68.65s, train loss: -1189.8713]
+Mon 20 Feb 2023 01:17:15 INFO  epoch 18 evaluating [time: 0.45s, valid_score: 0.000053]
+Mon 20 Feb 2023 01:17:15 INFO  valid result: 
+recall@10 : 2.7288898395e-05    recall@20 : 5.2461677037e-05    recall@50 : 9.336311423e-05    ndcg@10 : 4.9378731603e-05    ndcg@20 : 5.2918308721e-05    ndcg@50 : 6.4732532015e-05
+Mon 20 Feb 2023 01:18:23 INFO  epoch 19 training [time: 68.61s, train loss: -1190.3467]
+Mon 20 Feb 2023 01:18:24 INFO  epoch 19 evaluating [time: 0.45s, valid_score: 0.000053]
+Mon 20 Feb 2023 01:18:24 INFO  valid result: 
+recall@10 : 2.715743483e-05    recall@20 : 5.2422579752e-05    recall@50 : 9.3446682121e-05    ndcg@10 : 4.946009327e-05    ndcg@20 : 5.3462097869e-05    ndcg@50 : 6.4928272076e-05
+Mon 20 Feb 2023 01:18:24 INFO  Saving current: saved/DirectAU-ml-1m-Feb-20-2023_00-55-26.pth
+Mon 20 Feb 2023 01:19:32 INFO  epoch 20 training [time: 68.65s, train loss: -1190.8309]
+Mon 20 Feb 2023 01:19:33 INFO  epoch 20 evaluating [time: 0.45s, valid_score: 0.000054]
+Mon 20 Feb 2023 01:19:33 INFO  valid result: 
+recall@10 : 2.7691372789e-05    recall@20 : 5.2512196297e-05    recall@50 : 9.3663411957e-05    ndcg@10 : 5.0434091191e-05    ndcg@20 : 5.3587987949e-05    ndcg@50 : 6.5180800037e-05
+Mon 20 Feb 2023 01:19:33 INFO  Saving current: saved/DirectAU-ml-1m-Feb-20-2023_00-55-26.pth
+Mon 20 Feb 2023 01:20:42 INFO  epoch 21 training [time: 68.87s, train loss: -1191.2350]
+Mon 20 Feb 2023 01:20:42 INFO  epoch 21 evaluating [time: 0.45s, valid_score: 0.000053]
+Mon 20 Feb 2023 01:20:42 INFO  valid result: 
+recall@10 : 2.7731137014e-05    recall@20 : 5.2772518553e-05    recall@50 : 9.1897580503e-05    ndcg@10 : 4.9108243224e-05    ndcg@20 : 5.3138806711e-05    ndcg@50 : 6.3985773017e-05
+Mon 20 Feb 2023 01:21:51 INFO  epoch 22 training [time: 68.78s, train loss: -1191.7423]
+Mon 20 Feb 2023 01:21:51 INFO  epoch 22 evaluating [time: 0.45s, valid_score: 0.000053]
+Mon 20 Feb 2023 01:21:51 INFO  valid result: 
+recall@10 : 2.774287368e-05    recall@20 : 5.2612677453e-05    recall@50 : 9.2854976865e-05    ndcg@10 : 4.9822060793e-05    ndcg@20 : 5.2723565052e-05    ndcg@50 : 6.4118570662e-05
+Mon 20 Feb 2023 01:23:00 INFO  epoch 23 training [time: 68.66s, train loss: -1192.0707]
+Mon 20 Feb 2023 01:23:00 INFO  epoch 23 evaluating [time: 0.45s, valid_score: 0.000053]
+Mon 20 Feb 2023 01:23:00 INFO  valid result: 
+recall@10 : 2.7868081595e-05    recall@20 : 5.282256682e-05    recall@50 : 9.2922972068e-05    ndcg@10 : 5.0183559505e-05    ndcg@20 : 5.3156775398e-05    ndcg@50 : 6.4463686083e-05
+Mon 20 Feb 2023 01:24:09 INFO  epoch 24 training [time: 68.66s, train loss: -1192.4913]
+Mon 20 Feb 2023 01:24:10 INFO  epoch 24 evaluating [time: 0.46s, valid_score: 0.000053]
+Mon 20 Feb 2023 01:24:10 INFO  valid result: 
+recall@10 : 2.8301787805e-05    recall@20 : 5.0717850896e-05    recall@50 : 9.2950257194e-05    ndcg@10 : 5.0074756327e-05    ndcg@20 : 5.2683989486e-05    ndcg@50 : 6.441020351e-05
+Mon 20 Feb 2023 01:25:18 INFO  epoch 25 training [time: 68.68s, train loss: -1192.8289]
+Mon 20 Feb 2023 01:25:19 INFO  epoch 25 evaluating [time: 0.45s, valid_score: 0.000053]
+Mon 20 Feb 2023 01:25:19 INFO  valid result: 
+recall@10 : 2.7712774257e-05    recall@20 : 5.2900290144e-05    recall@50 : 9.3022369216e-05    ndcg@10 : 4.8862064164e-05    ndcg@20 : 5.3299432302e-05    ndcg@50 : 6.4390769598e-05
+Mon 20 Feb 2023 01:26:27 INFO  epoch 26 training [time: 68.71s, train loss: -1193.1691]
+Mon 20 Feb 2023 01:26:28 INFO  epoch 26 evaluating [time: 0.45s, valid_score: 0.000054]
+Mon 20 Feb 2023 01:26:28 INFO  valid result: 
+recall@10 : 2.7454294574e-05    recall@20 : 5.2824011492e-05    recall@50 : 9.3908590024e-05    ndcg@10 : 4.9545590583e-05    ndcg@20 : 5.358230518e-05    ndcg@50 : 6.4989290976e-05
+Mon 20 Feb 2023 01:27:37 INFO  epoch 27 training [time: 68.82s, train loss: -1193.4740]
+Mon 20 Feb 2023 01:27:37 INFO  epoch 27 evaluating [time: 0.45s, valid_score: 0.000052]
+Mon 20 Feb 2023 01:27:37 INFO  valid result: 
+recall@10 : 2.8013689717e-05    recall@20 : 4.9936518733e-05    recall@50 : 9.2347292147e-05    ndcg@10 : 4.9691867782e-05    ndcg@20 : 5.2175161021e-05    ndcg@50 : 6.4089953216e-05
+Mon 20 Feb 2023 01:28:46 INFO  epoch 28 training [time: 68.84s, train loss: -1193.6943]
+Mon 20 Feb 2023 01:28:46 INFO  epoch 28 evaluating [time: 0.45s, valid_score: 0.000053]
+Mon 20 Feb 2023 01:28:46 INFO  valid result: 
+recall@10 : 2.8439619648e-05    recall@20 : 5.2185397511e-05    recall@50 : 9.3391933783e-05    ndcg@10 : 5.0312845263e-05    ndcg@20 : 5.3077068777e-05    ndcg@50 : 6.4749065795e-05
+Mon 20 Feb 2023 01:29:55 INFO  epoch 29 training [time: 68.73s, train loss: -1193.9919]
+Mon 20 Feb 2023 01:29:56 INFO  epoch 29 evaluating [time: 0.45s, valid_score: 0.000052]
+Mon 20 Feb 2023 01:29:56 INFO  valid result: 
+recall@10 : 2.7941995324e-05    recall@20 : 4.9370785867e-05    recall@50 : 9.1964694598e-05    ndcg@10 : 4.9069622633e-05    ndcg@20 : 5.1602694403e-05    ndcg@50 : 6.3773400246e-05
+Mon 20 Feb 2023 01:31:04 INFO  epoch 30 training [time: 68.69s, train loss: -1194.2576]
+Mon 20 Feb 2023 01:31:05 INFO  epoch 30 evaluating [time: 0.45s, valid_score: 0.000052]
+Mon 20 Feb 2023 01:31:05 INFO  valid result: 
+recall@10 : 3.0421923848e-05    recall@20 : 5.0183727504e-05    recall@50 : 9.241870448e-05    ndcg@10 : 5.0834147679e-05    ndcg@20 : 5.2246367206e-05    ndcg@50 : 6.4127063494e-05
+Mon 20 Feb 2023 01:32:13 INFO  epoch 31 training [time: 68.67s, train loss: -1194.5403]
+Mon 20 Feb 2023 01:32:14 INFO  epoch 31 evaluating [time: 0.45s, valid_score: 0.000053]
+Mon 20 Feb 2023 01:32:14 INFO  valid result: 
+recall@10 : 2.9508369877e-05    recall@20 : 5.2509796951e-05    recall@50 : 9.4145772648e-05    ndcg@10 : 4.9257167435e-05    ndcg@20 : 5.2911018579e-05    ndcg@50 : 6.4678000625e-05
+Mon 20 Feb 2023 01:32:14 INFO  Finished training, best eval result in epoch 20
+Mon 20 Feb 2023 01:32:14 INFO  Total (train & valid) time: 2208.28s
+Mon 20 Feb 2023 01:32:14 INFO  Loading model structure and parameters from saved/DirectAU-ml-1m-Feb-20-2023_00-55-26.pth
+Mon 20 Feb 2023 01:32:14 INFO  best valid : OrderedDict([('recall@10', 2.7691372789e-05), ('recall@20', 5.2512196297e-05), ('recall@50', 9.3663411957e-05), ('ndcg@10', 5.0434091191e-05), ('ndcg@20', 5.3587987949e-05), ('ndcg@50', 6.5180800037e-05)])
+Mon 20 Feb 2023 01:32:14 INFO  test result: OrderedDict([('recall@10', 0.102327512616663), ('recall@20', 0.163351073083131), ('recall@50', 0.285265101897636), ('ndcg@10', 0.106483258991788), ('ndcg@20', 0.122745056093189), ('ndcg@50', 0.159283893787115)])

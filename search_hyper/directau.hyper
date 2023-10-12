@@ -1,0 +1,2 @@
+weight_decay choice [1e-6, 1e-8, 0]
+gamma choice [1]

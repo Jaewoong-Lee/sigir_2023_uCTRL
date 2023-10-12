@@ -1,0 +1,38 @@
+1. Dataset
+
+- Gowalla
+- Yahoo
+- ml-1m
+- Yelp
+
+
+
+2. experiment result
+
+    2-1 output_files
+    _mf : results for hyperparameters searching of mf encoder
+    _gcn : results for hyperparameters searching of gcn encoder
+
+    2-2 seed_output
+    _seed : 5-seed results for mf encoder
+    _seed_gcn : 5-seed results for gcn encoder
+
+
+3. calculate seed average
+    seed_output : 5-seed results
+    run_seed_avg.py : average from 5-seed results
+
+
+4. make_graph
+    4-1 embeddings
+    embedding_graph.ipynb : code for embeddig visualization
+
+
+    4-2 loss_graph
+    loss_graph.ipynb : code for alignment and uniformity visualization
+
+
+5. command
+    command examples for search_hyper and search_seed
+
+

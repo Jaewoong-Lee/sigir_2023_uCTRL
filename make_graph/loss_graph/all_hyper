@@ -1,0 +1,4 @@
+learning_rate choice [0.0005]
+train_batch_size choice [512, 256]
+neg_sampling choice ["{'uniform':5}", "{'uniform':15}"]
+

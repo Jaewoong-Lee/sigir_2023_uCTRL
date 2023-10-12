@@ -1,0 +1,5 @@
+DirectAU
+python run_hyper.py --model=DirectAU --dataset=Yelp --encoder=MF --params_file=seed_hyper/beauty/directau_mf.hyper --eval=unbiased --output_file=output_files/Yelp/directau_seed --gpu_id=1
+
+DirectAU
+python run_hyper.py --model=DirectAU --dataset=Yelp --encoder=LightGCN --n_layers=1 --params_file=seed_hyper/beauty/directau_lightgcn.hyper --output_file=output_files/Yelp/directau_gcn_seed --gpu_id=1 --eval=unbiased

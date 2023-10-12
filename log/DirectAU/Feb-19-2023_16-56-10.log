@@ -1,0 +1,137 @@
+Sun 19 Feb 2023 16:56:10 INFO  
+General Hyper Parameters:
+gpu_id = 1
+use_gpu = True
+seed = 0
+state = INFO
+reproducibility = True
+data_path = dataset/Gowalla2
+checkpoint_dir = saved
+show_progress = False
+save_dataset = False
+dataset_save_path = None
+save_dataloaders = True
+dataloaders_save_path = None
+log_wandb = False
+
+Training Hyper Parameters:
+epochs = 500
+train_batch_size = 1024
+learner = adam
+learning_rate = 0.001
+neg_sampling = None
+eval_step = 1
+stopping_step = 10
+clip_grad_norm = None
+weight_decay = 0
+loss_decimal_place = 4
+
+Evaluation Hyper Parameters:
+eval_args = {'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}
+repeatable = False
+metrics = ['Recall', 'NDCG']
+topk = [10, 20, 50]
+valid_metric = NDCG@20
+valid_metric_bigger = True
+eval_batch_size = 1048576
+metric_decimal_place = 15
+
+Dataset Hyper Parameters:
+field_separator = 	
+seq_separator =  
+USER_ID_FIELD = user_id
+ITEM_ID_FIELD = item_id
+RATING_FIELD = rating
+TIME_FIELD = timestamp
+seq_len = None
+LABEL_FIELD = label
+threshold = None
+NEG_PREFIX = neg_
+load_col = {'inter': ['user_id', 'item_id', 'timestamp']}
+unload_col = None
+unused_col = None
+additional_feat_suffix = None
+rm_dup_inter = last
+val_interval = None
+filter_inter_by_user_or_item = True
+user_inter_num_interval = [5,inf)
+item_inter_num_interval = [5,inf)
+alias_of_user_id = None
+alias_of_item_id = None
+alias_of_entity_id = None
+alias_of_relation_id = None
+preload_weight = None
+normalize_field = None
+normalize_all = True
+ITEM_LIST_LENGTH_FIELD = item_length
+LIST_SUFFIX = _list
+MAX_ITEM_LIST_LENGTH = 50
+POSITION_FIELD = position_id
+HEAD_ENTITY_ID_FIELD = head_id
+TAIL_ENTITY_ID_FIELD = tail_id
+RELATION_ID_FIELD = relation_id
+ENTITY_ID_FIELD = entity_id
+benchmark_filename = ['p1', 'p2', 'p3']
+
+Other Hyper Parameters: 
+save_pos_pairs = True
+pos_pairs_save_path = None
+wandb_project = recbole
+require_pow = False
+embedding_size = 64
+encoder = MF
+n_layers = 2
+gamma = 5
+MODEL_TYPE = ModelType.GENERAL
+gamma1 = 2
+gamma2 = 20
+eval = unbiased
+MODEL_INPUT_TYPE = InputType.POINTWISE
+eval_type = EvaluatorType.RANKING
+device = cuda
+train_neg_sample_args = {'strategy': 'none', 'in_batch': False}
+eval_neg_sample_args = {'strategy': 'full', 'distribution': 'uniform'}
+
+
+Sun 19 Feb 2023 16:56:15 INFO  Gowalla2
+The number of users: 29859
+Average actions of users: 30.96768035367406
+The number of items: 40982
+Average actions of items: 22.56248017373905
+The number of inters: 924633
+The sparsity of the dataset: 99.92443842852191%
+Remain Fields: ['user_id', 'item_id']
+Sun 19 Feb 2023 16:56:17 INFO  [Training]: train_batch_size = [1024] negative sampling: [None]
+Sun 19 Feb 2023 16:56:17 INFO  [Evaluation]: eval_batch_size = [1048576] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Sun 19 Feb 2023 16:56:20 INFO  DirectAU(
+  (encoder): MFEncoder(
+    (user_embedding): Embedding(29859, 64)
+    (item_embedding): Embedding(40982, 64)
+  )
+)
+Trainable parameters: 4533824
+Sun 19 Feb 2023 16:56:58 INFO  epoch 0 training [time: 35.18s, train loss: -14844.3589]
+Sun 19 Feb 2023 16:57:02 INFO  epoch 0 evaluating [time: 3.82s, valid_score: 0.000421]
+Sun 19 Feb 2023 16:57:02 INFO  valid result: 
+recall@10 : 0.000449227855586    recall@20 : 0.000801791617556    recall@50 : 0.00167781138706    ndcg@10 : 0.000305080775473    ndcg@20 : 0.000421041351294    ndcg@50 : 0.000659177398169
+Sun 19 Feb 2023 16:57:02 INFO  Saving current: saved/DirectAU-Gowalla2-Feb-19-2023_16-56-23.pth
+Sun 19 Feb 2023 16:57:37 INFO  epoch 1 training [time: 34.67s, train loss: -15197.7715]
+Sun 19 Feb 2023 16:57:39 INFO  epoch 1 evaluating [time: 2.23s, valid_score: 0.000818]
+Sun 19 Feb 2023 16:57:39 INFO  valid result: 
+recall@10 : 0.000836058147036    recall@20 : 0.001629057815775    recall@50 : 0.003444237147928    ndcg@10 : 0.000562723822928    ndcg@20 : 0.000817954884997    ndcg@50 : 0.001298994397318
+Sun 19 Feb 2023 16:57:39 INFO  Saving current: saved/DirectAU-Gowalla2-Feb-19-2023_16-56-23.pth
+Sun 19 Feb 2023 16:58:14 INFO  epoch 2 training [time: 34.95s, train loss: -15273.5652]
+Sun 19 Feb 2023 16:58:16 INFO  epoch 2 evaluating [time: 2.37s, valid_score: 0.000973]
+Sun 19 Feb 2023 16:58:16 INFO  valid result: 
+recall@10 : 0.001062627947235    recall@20 : 0.001898469581776    recall@50 : 0.00412756665404    ndcg@10 : 0.000700176727652    ndcg@20 : 0.000972907477506    ndcg@50 : 0.001558433259002
+Sun 19 Feb 2023 16:58:17 INFO  Saving current: saved/DirectAU-Gowalla2-Feb-19-2023_16-56-23.pth
+Sun 19 Feb 2023 16:58:52 INFO  epoch 3 training [time: 35.18s, train loss: -15303.7067]
+Sun 19 Feb 2023 16:58:54 INFO  epoch 3 evaluating [time: 2.30s, valid_score: 0.001066]
+Sun 19 Feb 2023 16:58:54 INFO  valid result: 
+recall@10 : 0.001148539325933    recall@20 : 0.00207419665684    recall@50 : 0.00443881559923    ndcg@10 : 0.000766636333558    ndcg@20 : 0.00106591269936    ndcg@50 : 0.001688839540418
+Sun 19 Feb 2023 16:58:54 INFO  Saving current: saved/DirectAU-Gowalla2-Feb-19-2023_16-56-23.pth
+Sun 19 Feb 2023 16:59:30 INFO  epoch 4 training [time: 35.33s, train loss: -15321.1614]
+Sun 19 Feb 2023 16:59:32 INFO  epoch 4 evaluating [time: 2.25s, valid_score: 0.001131]
+Sun 19 Feb 2023 16:59:32 INFO  valid result: 
+recall@10 : 0.001229553011268    recall@20 : 0.002203426320148    recall@50 : 0.004519476995595    ndcg@10 : 0.000813584506947    ndcg@20 : 0.001131403864557    ndcg@50 : 0.001748925600847
+Sun 19 Feb 2023 16:59:32 INFO  Saving current: saved/DirectAU-Gowalla2-Feb-19-2023_16-56-23.pth

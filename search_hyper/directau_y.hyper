@@ -1,0 +1,6 @@
+embedding_size choice [64]
+train_batch_size choice [256,512]
+learning_rate choice [5e-3, 1e-3, 5e-4]
+weight_decay choice [ 1e-6, 1e-8, 0]
+neg_sampling choice ["{'uniform':0}"]
+gamma choice [0.5, 1]

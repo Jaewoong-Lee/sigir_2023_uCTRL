@@ -1,0 +1,34 @@
+MF_IPS
+python run_hyper_debias.py --model=MF_IPS --dataset=ml-1m --encoder=MF --n_layers=1 --params_file=search_hyper/mf_ips.hyper --output_file=output_files/ml-1m/mf_ips_mf --gpu_id=0
+RelMF
+python run_hyper_debias.py --model=REL_MF --dataset=ml-1m --encoder=MF --n_layers=1 --params_file=search_hyper/rel.hyper --output_file=output_files/ml-1m/rel_mf_mf --gpu_id=1
+PDA
+python run_hyper_debias.py --model=PDA --dataset=ml-1m --encoder=MF --n_layers=1 --params_file=search_hyper/pda.hyper --output_file=output_files/ml-1m/pda_mf --gpu_id=0
+MACR
+python run_hyper_debias.py --model=MACR --dataset=ml-1m --encoder=MF --n_layers=1 --params_file=search_hyper/macr.hyper --output_file=output_files/ml-1m/macr_mf --gpu_id=1
+BPR
+python run_hyper.py --model=BPR --dataset=ml-1m --encoder=MF --n_layers=1 --params_file=search_hyper/bpr.hyper --output_file=output_files/ml-1m/bpr_mf --gpu_id=0
+SSM
+python run_hyper.py --model=SSM --dataset=ml-1m --encoder=MF --n_layers=1 --params_file=search_hyper/ssm.hyper --output_file=output_files/ml-1m/ssm_mf --gpu_id=1
+BCLOSS
+python run_hyper.py --model=BCLOSS --dataset=ml-1m --encoder=MF --n_layers=1 --params_file=search_hyper/bce.hyper --output_file=output_files/ml-1m/bce_mf --gpu_id=0
+DirectAU
+python run_hyper.py --model=DirectAU --dataset=ml-1m --encoder=MF --n_layers=1 --params_file=search_hyper/directau.hyper --output_file=output_files/ml-1m/directau_mf --gpu_id=1
+
+
+MF_IPS
+python run_hyper_debias.py --model=MF_IPS_GCN --dataset=ml-1m --encoder=LightGCN --n_layers=1 --params_file=search_hyper/mf_ips.hyper --output_file=output_files/ml-1m/mf_ips_gcn --gpu_id=0
+RelMF
+python run_hyper_debias.py --model=REL_LightGCN --dataset=ml-1m --encoder=LightGCN --n_layers=1 --params_file=search_hyper/rel.hyper --output_file=output_files/ml-1m/rel_mf_gcn --gpu_id=1
+PDA
+python run_hyper_debias.py --model=PDA --dataset=ml-1m --encoder=LightGCN --n_layers=1 --params_file=search_hyper/pda.hyper --output_file=output_files/ml-1m/pda_gcn --gpu_id=0
+MACR
+python run_hyper_debias.py --model=MACR --dataset=ml-1m --encoder=LightGCN --n_layers=1 --params_file=search_hyper/macr.hyper --output_file=output_files/ml-1m/macr_gcn --gpu_id=1
+BPR
+python run_hyper.py --model=BPR_GCN --dataset=ml-1m --encoder=LightGCN --n_layers=1 --params_file=search_hyper/bpr.hyper --output_file=output_files/ml-1m/bpr_gcn --gpu_id=0
+SSM
+python run_hyper.py --model=SSM --dataset=ml-1m --encoder=LightGCN --n_layers=1 --params_file=search_hyper/ssm.hyper --output_file=output_files/ml-1m/ssm_gcn --gpu_id=1
+BCLOSS
+python run_hyper.py --model=BCLOSS_GCN --dataset=ml-1m --encoder=LightGCN --n_layers=1 --params_file=search_hyper/bce.hyper --output_file=output_files/ml-1m/bce_gcn --gpu_id=0
+DirectAU
+python run_hyper.py --model=DirectAU --dataset=ml-1m --encoder=LightGCN --n_layers=1 --params_file=search_hyper/directau.hyper --output_file=output_files/ml-1m/directau_gcn --gpu_id=1
